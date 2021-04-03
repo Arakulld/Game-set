@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block  head %}
+  <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
+	<link rel="stylesheet" href="{% static "css/pubg-main.css" %}">
+	<link rel="stylesheet" href="{% static "css/tabs.css" %}">
+	<link rel="stylesheet" href="{% static "css/slide-pages.css" %}">
+{% endblock %}
+{% block title %}Create tournament new{% endblock %}
+{% block content %}
+
+  <main class="main-tour">
+		<div class="row main-header text-right">
+      <div class="col">
+        <span>T</span>eams Lists
+      </div>
+    </div>
+    <div class="justify-content-end">
+      <button type="submit" class="btn btn-primary main-inputs-btn">Create Team</button>
+    </div>
+    <p class="text-center">No Items to show</p>
+	</main>
+  
+  
+{% endblock %}

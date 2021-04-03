@@ -1,0 +1,25 @@
+.error {
+    background-color: #c6705c;
+    color: #ffd9b7;
+}
+
+.success {
+    background-color: #00ff83;
+    color: #009e0a
+}
+
+.info {
+    background-color: #f2ff91;
+    color: #cc9d00;
+}
+
+.messages {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.err-li {
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 5px 12px;
+}

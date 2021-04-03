@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Edit team{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
+    <style>
+        .team-block {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-inputs-button {
+            margin-top: 50px;
+        }
+
+        .button-position {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <main class="main-tour">
+        <div class="row main-header text-right">
+            <div class="col">
+                <span>E</span>dit Team
+            </div>
+        </div>
+        <div class="team-block">
+            <div class="team-block-1">
+                <input type="text" class="main-input-game  info-input" placeholder="Team name">
+            </div>
+            <div class="team-block-2">
+                <div class="main-inputs-file-game">
+                    <input type="file" class="form-control-file">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="main-input-comment" placeholder="Description for your Comments ...">
+                </div>
+            </div>
+        </div>
+        <div class="team-icon-pos justify-content-center">
+            <div class="teams-icon post"></div>
+            <div class="teams-icon post"></div>
+            <div class="teams-icon post"></div>
+            <div class="teams-icon-1 post icon-pos">
+                <img src="{% static "img/plus.png" %}" height="30px" alt=""><br><br> Add member
+            </div>
+            <div class="teams-icon-1 post icon-pos">
+                <img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""><br><br> Add member
+            </div>
+
+
+        </div>
+        <div class="button-position">
+            <button type="submit" class="btn-primary main-inputs-btn main-inputs-button">Edit</button>
+        </div>
+
+
+    </main>
+{% endblock %}

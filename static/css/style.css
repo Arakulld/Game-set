@@ -1,0 +1,452 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+button:active, button:focus {
+  outline: none !important;
+}
+
+button::-moz-focus-inner {
+  border: 0 !important;
+}
+
+input {
+  outline: 0 !important;
+}
+
+body {
+  background: url(../img/bg.jpg) center top no-repeat;
+  background-size: cover;
+}
+
+.main {
+  margin: 300px 215px;
+  background: linear-gradient(292.74deg, rgba(198, 0, 0, 0.7) 4.85%, rgba(0, 0, 0, 0.7) 100%);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid red;
+  padding-bottom: 121px;
+}
+
+.main-header {
+  font-weight: 900;
+  font-size: 40px;
+  color: white;
+  margin-top: 30px;
+  margin-right: 100px;
+  margin-bottom: 63px;
+ 
+}
+
+.main-header span {
+  color: #C60000;
+}
+
+.main-links {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 21px;
+  color: #B48888;
+  margin-bottom: 30px;
+}
+
+.main-input {
+  width: 570px;
+  height: 50px;
+  font-weight: 500;
+  font-size: 12px;
+  padding-left: 20px;
+  border-radius: 6px;
+  border: 1px solid #B48888;
+  background: transparent;
+  color: white;
+}
+
+.main-input-mini {
+  width: 270px;
+}
+
+.main-select {
+  appearance: none;
+  color: grey;
+  outline: none;
+  width: 570px;
+  height: 50px;
+  font-weight: 500;
+  font-size: 12px;
+  padding-left: 20px;
+  border-radius: 6px;
+  border: 1px solid #B48888;
+  background: transparent;
+  position: relative;
+  background: url(../img/arrow-down.png) no-repeat center right 20px;
+}
+
+.main-static {
+  width: 270px;
+  height: 50px;
+  font-weight: 500;
+  font-size: 12px;
+  background: none;
+  margin-right: 30px;
+  color: white;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+}
+
+.main-btn {
+  font-weight: 500;
+  font-size: 12px;
+  color: #B48888;
+  border: 1px solid #B48888;
+  background: transparent;
+  padding: 15px 24px;
+  border-radius: 6px;
+}
+
+.main-btn-active {
+  color: white;
+  background: #B48888;
+  border: 1px solid white;
+}
+
+.main-inputs-header {
+  font-weight: 900;
+  font-size: 32px;
+  color: #B48888;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.main-inputs-file {
+  width: 570px;
+  height: 180px;
+  border: 1px solid #B48888;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 56px 244px;
+  background: url("../img/photo-upload.png") no-repeat center;
+  margin-bottom: 60px;
+}
+
+.main-inputs-btn {
+  text-align: right;
+  padding: 19px 72px;
+  background: radial-gradient(76.67% 76.67% at 50% 50%, #C60000 0%, rgba(0, 0, 0, 0.51) 100%);
+  border: 0.5px solid #5E0000;
+  box-shadow: 0px 0px 10px rgba(198, 0, 0, 0.25);
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+select option {
+  color: black;
+  background: white;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.text-muted span {
+  color: green;
+}
+
+input[type='file'] {
+  opacity: 0;
+}
+
+.info-select {
+  width: 270px;
+  background: url(../img/arrow-down.png) no-repeat center right 20px;
+}
+
+.info-click {
+  background: url(../img/plus.png) no-repeat center right 20px;
+}
+
+#login{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+.login-space{
+  margin-bottom: 30px;
+}
+
+/* Accordion style */
+.accordion {
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  border-radius: 6px;
+}
+
+.active, .accordion:hover {
+  background-color: rgb(136, 60, 60); 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+}
+
+
+/* --- Search page Style ---  */
+
+.search-main{
+  margin: 300px 215px;
+  background: linear-gradient(292.74deg, rgba(198, 0, 0, 0.7) 4.85%, rgba(0, 0, 0, 0.7) 100%);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid red;
+  border-radius: 6px;
+  padding-bottom: 121px;
+  padding: 30px 100px 120px 100px;
+
+}
+
+.text-posit{
+font-weight: 900;
+font-size: 40px;
+line-height: 47px;
+text-align: right;
+/* margin-right: 100px;
+margin-top: 30px; */
+color: #FFFFFF;
+margin: 30px 100px 30px ;
+}
+.text-posit span{
+  color: #C60000;
+}
+
+#duble-search-bar{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  margin-bottom: 60px;
+
+}
+
+.btn-design{
+  appearance: none;
+  color: grey;
+  outline: none;
+  font-weight: 500;
+  font-size: 12px;
+  padding-left: 20px;
+  border-radius: 6px;
+  border: 1px solid #B48888;
+  background: transparent;
+  position: relative;
+  background: url(../img/arrow-down.png) no-repeat center right 20px;
+
+}
+.search-search{
+  width: 225px;
+  height: 30px;
+}
+.choose-game{
+  width: 110px;
+  height: 30px;
+ 
+}
+.choose-time{
+  width: 110px;
+  height: 30px;
+}
+
+.search-game{
+  padding: 10px 52px;
+  background: radial-gradient(76.67% 76.67% at 50% 50%, #C60000 0%, rgba(0, 0, 0, 0.51) 100%);
+  border: 0.5px solid #5E0000;
+  box-shadow: 0px 0px 10px rgba(198, 0, 0, 0.25);
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 12px;
+  margin-left: 20px;
+  color: #FFFFFF;
+
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  padding: 30px;
+
+}
+
+.grid-container > div {
+  background: linear-gradient(0deg, rgba(153, 0, 0, 0.25) 20%, rgba(255, 255, 255, 0) 50%), linear-gradient(180deg, rgba(153, 0, 0, 0.25) 20.42%, rgba(255, 255, 255, 0) 50%), url(dota2_img.jpg);
+  filter: drop-shadow(0px 0px 15px rgba(49, 0, 0, 0.5));
+  text-align: center;
+  font-size: 30px;
+  /* width: 170px;*/
+  height: 240px; 
+  border-radius: 6px;
+
+}
+
+.game-select {
+  width: 110px;
+  height: 40px;
+  background: url(../img/arrow-down.png) no-repeat center right 20px;
+}
+
+.main-search{
+  width: 225px;
+  height: 40px;
+}
+
+.main-data{
+  width: 140px ;
+  height: 40px;
+  background: none;
+}
+
+
+/* Pforile Settings Page */
+
+.user-info{
+  margin-top: 22px;
+}
+
+.edit-btn{
+  margin-left: 240px;
+  padding: 12px 52px;
+}
+
+.tour-btn{
+  margin-left: 180px;
+  padding: 17px 62px;
+}
+
+.user-info-in{
+  margin-top: 16px;
+  width: 220px;
+  height: 30px;
+  font-weight: 100px;
+  font-size: 12px;
+  padding-left: 20px;
+  border-radius: 6px;
+  border: 1px solid #B48888;
+  background: transparent;
+  color: white;
+}
+
+/* ----- To Do List ----- */
+.to-do-btn{
+  padding: 7px  30px;
+  border-radius: 6px;
+  border: 0.5px solid #FFFFFF;
+  font-size: 16px;
+}
+.input-comm{
+  background-color:#FFFFFF;
+  border-radius: 6px;
+  width: 520px;
+  height: 40px;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+
+/* Remove margins and padding from the list */
+
+
+/* Style the list items */
+.to-do-list {
+  margin-top:30px;
+  cursor: pointer;
+  padding: 20px 30px;
+  font-size: 16px;
+  color: #FFFFFF;
+  border-radius: 6px;
+  border: 0.5px solid #FFFFFF;
+  background: linear-gradient(90deg, #2C0404 0%, #610000 100%);
+  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+/* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Style the header */
+.head-of-comm {
+  height: 80px;
+  width: 670px;
+  background-color: #5E0000;
+  padding: 20px;
+  border-radius: 6px;
+  color: white;
+  text-align: center;
+  margin-bottom: 25px;
+
+  border: 0.5px solid #FFFFFF;
+ 
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+/* Clear floats after the header */
+.head-of-comm:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Style the "Add" button */
+.addBtn {
+  padding: 10px;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}

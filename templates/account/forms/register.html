@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Sing up{% endblock %}
+{% block content %}
+<main class="main">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="row main-header text-right">
+					<div class="col">
+						<span>R</span>egistration <br> of your <span>account</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row justify-content-center inactive">
+		</div>
+		<div class="row main-inputs justify-content-center">
+			<form id="login" method="POST" action=".">
+				<input name="username" type="text" class="main-input main-input-mini info-input login-space"
+					placeholder="Username">
+				<input name="email" type="text" class="main-input main-input-mini info-input login-space"
+					placeholder="Email">
+				<input name="phone_number" type="text" class="main-input main-input-mini info-input login-space"
+					placeholder="Phonenumber (Optional)">
+				<input name="password" type="password" class="main-input main-input-mini info-input login-space"
+					placeholder="Password">
+				<input name="password_confirm" type="password" class="main-input main-input-mini info-input login-space"
+					placeholder="Confirm Password">
+				{% csrf_token %}
+				<div class="justify-content-end login-space">
+					<button type="submit" class="btn btn-primary main-inputs-btn">Create an account</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</main>
+{% endblock %}

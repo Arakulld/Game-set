@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block  head %}
+    <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
+	<style>
+		.profile-btns {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		.profile-header {
+			margin-right: 0;
+			margin-bottom: 0;
+		}
+	</style>
+{% endblock %}
+{% block content %}
+    <div class="justify-content-end btn-position">
+        <button type="submit" class="btn btn-primary main-inputs-btn ">Main</button>
+        <button type="submit" class="btn btn-primary main-inputs-btn ">Log out</button>
+    </div>
+    <main class="main-tour">
+        <div class="row main-header text-right">
+            <div class="col">
+                <span>P</span>rofile settings
+            </div>
+        </div>
+        <div class=" menu-description">
+            <div class="row justify-content-between align-items-center pubg-info">
+                <div class="col d-flex align-items-center">
+                    <div class="teams-icon-1 post icon-pos">
+                        <input type="file" class="form-control-file">
+                        <img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""><br><br> Upload avatar
+                    </div>
+                    <!-- <img class="pubg-photo" src="img/PhotoFrame.png" alt="photo"> -->
+                </div>
+            </div>
+            <ul>
+                <li class="user-info">Tag</li>
+                <li class="user-info">Username</li>
+                <li class="user-info">Email</li>
+                <li class="user-info">Phone number</li>
+            </ul>
+            <ul class="descr-color">
+                <li class="user-info" type="tag">#FV23GG7</li>
+                <li class="user-info" type="username"> {{ user.username }}</li>
+                <li class="user-info" type="email"> {{ user.email }}</li>
+                <li class="user-info" type="number">{{ user.account.phone_number }}</li>
+            </ul>
+        </div>
+        <div class="profile-btns">
+            <form action="{% url 'edit_profile' %}">
+                <button type="submit" class="btn btn-primary main-inputs-btn edit-btn">Edit</button>
+            </form>
+            <form action="">
+                <button type="submit" class="btn btn-primary main-inputs-btn tour-btn">My Tournaments</button>
+            </form>
+        </div>
+        <div class="row main-header justify-content-center profile-header">
+			<span>F</span>avorites
+        </div>
+        <div class="grid-container">
+
+            <div><img src="{% static "img/games foto/Card_0.png" %}" alt=""></div>
+            <div><img src="{% static "img/games foto/Card_1.png" %}" alt=""></div>
+            <div><img src="{% static "img/games foto/Card_2.png" %}" alt=""></div>
+            <div><img src="{% static "img/games foto/Card_3.png" %}" alt=""></div>
+            <div><img src="{% static "img/games foto/Card_4.png" %}" alt=""></div>
+            <div><img src="{% static "img/games foto/Card_5.png" %}" alt=""></div>
+            <div><img src="{% static "img/games foto/Card_6.png" %}" alt=""></div>
+            <div><img src="{% static "img/games foto/Card_7.png" %}" alt=""></div>
+            <div><img src="{% static "img/games foto/Card_8.png" %}" alt=""></div>
+        </div>
+
+    </main>
+{% endblock %}

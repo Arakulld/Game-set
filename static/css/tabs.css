@@ -1,0 +1,94 @@
+.full-info{
+	border: 0.3px solid #FFEAEA;
+}
+.line {
+	border-bottom: 0.3px solid #FFEAEA;
+	padding-bottom: 15px;
+}
+.full-content{
+	display: flex;
+	justify-content: space-between;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-weight: 500;
+	font-size: 12px;
+	color: #B48888;
+  }
+  .text{
+	font-weight: 500;
+	font-size: 12px;
+	color: #B48888;
+  }
+.text-header {
+	font-weight: bold;
+	font-size: 18px;
+	color: #FFFFFF;
+}
+.text-small {
+	font-weight: 300;
+	font-size: 14px;
+	color: #FFFFFF;
+}
+  .tabs-content{
+	margin-right: 70px;
+	display: none;
+  }
+  .visible{
+	display: block;
+  }
+  .tabs{
+	padding: 24px 74px;
+	margin-bottom: 16px;
+  }
+  .bookmark-added{
+	vertical-align: middle;
+  }
+  .tabs-item{
+	font-weight: 500;
+	font-size: 12px;
+	color: #FFEAEA;
+  }
+  .tabs-item-active{
+	background: url(../img/Underline.png) no-repeat bottom
+  }
+  .tabs-item:hover{
+	color: red
+  }
+  .subscribe-title{
+	font-weight: 900;
+	font-size: 16px;
+	line-height: 150%;
+	margin-bottom: 14px;
+	margin-top: 0;
+  }
+  .subscribe-form{
+	position: relative;
+	margin-bottom: 48px;
+  
+  }
+	
+  .subscribe-input{
+	width: calc(100%-5px);
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	background: rgba(196, 196, 196, 0.5);
+	/* border-radius: 5px; */
+	padding: 12px 15px;
+	border: none;
+	color: #AEAEAE;
+	font-size: 14px;
+	line-height: 16px;
+	height: 40px;
+  }
+  .subsrcibe-button{
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: #FF8F27;
+	border-radius: 0px 5px 5px 0px;
+	border: none;
+	height: 40px;
+	width: 40px;
+	top: 0;
+	right: 0;
+  }

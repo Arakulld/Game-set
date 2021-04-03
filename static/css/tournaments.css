@@ -1,0 +1,322 @@
+body {
+  background: url(../img/bg.jpg) center top no-repeat;
+  background-size: cover;
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Area */
+.main-tour {
+  margin: 300px 215px;  
+  background: linear-gradient(292.74deg, rgba(198, 0, 0, 0.7) 4.85%, rgba(0, 0, 0, 0.7) 100%);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid red;
+  border-radius: 6px;
+  padding: 30px 100px 200px 100px;
+}
+
+.text-center{
+  /* margin-left: 544px 514px; */
+  padding: 100px;
+  text-align: center;
+  color: #B48888;
+}
+/* Rectangle 67 */
+.cards{
+  width: 170px;
+  height: 170px;
+  background: #000000;
+  /* /Btn_Stroke */
+  border: 0.5px solid #5E0000;
+  box-sizing: border-box;
+  /* btn_red_effect */
+  box-shadow: 0px 0px 10px rgba(198, 0, 0, 0.25);
+  border-radius: 6px;
+  margin: 20px;
+
+}
+/* TeamName */
+.group-name{
+  text-align: center;
+
+  /* /Acc_Det_Bold */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+  color: #FFFFFF;
+}
+/* GameName */
+.game-name{
+  text-align: left;
+
+  /* /Acc_Det_Bold */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+  color: #B48888;
+
+}
+.player-name{
+  text-align:left;
+
+  /* /Acc_Det_Light */
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: #B48888;
+}
+.new-games-block{
+  display: flex;
+  flex-direction:row;
+  margin-left: 100px;
+  margin-right: 70px;
+  margin-top: 30px;
+  border: 2px solid  #867575;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+
+.new-games-block-button{
+  display: flex;
+  flex-direction:column;
+  text-align: right;
+  margin-left: 300px;
+  margin-top: 20px;
+  margin-right: 20px;
+  
+}
+
+.team-block{
+  display: flex;
+  flex-direction: column;
+  
+}
+.team-block-1{
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+.team-block-2{
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+}
+
+.btn-create{
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin-top: 30px;
+}
+.main-inputs-file-game{
+  width: 150px;
+  height: 150px;
+  border: 1px solid #B48888;
+  box-sizing: border-box;
+  border-radius: 6px;
+  padding: 56px 56px;
+  background: url("../img/photo-upload.png") no-repeat center;
+  margin-right: 50px;
+
+}
+
+.main-input-game {
+  width: 570px;
+  height: 50px;
+  font-weight: 500;
+  font-size: 12px;
+  padding-left: 20px;
+  border-radius: 6px;
+  border: 1px solid #B48888;
+  background: transparent;
+  color: white;
+  margin-bottom: 30px;
+}
+.main-input-comment{
+  width: 370px;
+  height: 150px;
+  font-weight: 500;
+  font-size: 12px;
+  padding-left: 20px;
+  border-radius: 6px;
+  border: 1px solid #B48888;
+  background: transparent;
+  color: white;
+
+}
+
+/* Games Menu */
+
+.btn-position{
+  position: absolute;
+  right: 215px;
+  top: 240px;
+}
+
+.game-menu{
+  display: flex;
+  flex-direction: row;
+  color: #FFFFFF;
+  margin-bottom: none;
+  text-align: right;
+}
+.game-menu p{
+  color:#FFFFFF;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 29px;
+}
+
+.game-type{
+  display: flex;
+  flex-direction: row;
+  margin-left:50px ;
+  border: 1px solid #B48888;
+  padding: 5px 5px 5px 300px;
+  border-top:none;
+  border-left: none;
+  border-right: none;
+}
+.game-name{
+  margin-left:20px ;
+}
+.menu-description{
+  display: flex;
+  flex-direction: row;
+}
+
+/* Games menu html  */
+.btns-pos{
+  text-align: right;
+  margin-bottom: 60px;
+}
+.btn-user{
+  width: 20px;
+  height: 20px;
+}
+.btn-search{
+  
+  margin-left: 50px;
+  padding: 10px 20px;
+  background: radial-gradient(76.67% 76.67% at 50% 50%, #C60000 0%, rgba(0, 0, 0, 0.51) 100%);
+  border: 0.5px solid #5E0000;
+  box-shadow: 0px 0px 10px rgba(198, 0, 0, 0.25);
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 12px;
+  color: #FFFFFF;
+
+}
+ul{
+  padding: 7px;
+  margin-left:50px ;
+  margin-right: 20px;
+  color: #FFFFFF;
+}
+.descr-color{
+  color: #B48888;
+}
+.team-icon-pos{
+  display: flex;
+  flex-direction: row;
+}
+
+.post{
+  width: 170px;
+  height: 210px;
+  margin: 10px;
+  color:#B48888;
+}
+.teams-icon{
+  background: #000000;
+  border: 0.5px solid #5E0000;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 10px rgba(198, 0, 0, 0.25);
+  border-radius: 6px;
+
+}
+.teams-icon-1{
+  background: rgba(0, 0, 0, 0.3);
+  /* /Btn_Stroke */
+  border: 0.5px solid #5E0000;
+  box-sizing: border-box;
+  /* btn_red_effect */
+  box-shadow: 0px 0px 10px rgba(198, 0, 0, 0.25);
+  border-radius: 6px;
+}
+.icon-pos{
+  text-align: center;
+  padding-top: 50px;
+}
+
+
+/* Open Modal */
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color:rgba(198, 0, 0, 0.25);
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+  width: 60%;
+  border: 0.5px solid #5E0000;
+
+}
+.modal-content p{
+  color: #FFFFFF;
+  font-size: 18px;
+  line-height: 21px;
+}
+
+/* The Close Button */
+.close {
+  
+  float: center;
+  font-size: 14px;
+  cursor: pointer;
+  color: #FFFFFF;
+  /* font-weight: bold; */
+}
+
+/* .close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+} */

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block head %}
+    <style>
+        .main-inputs-form {
+            text-align: center;
+        }
+
+        .main-inputs-button {
+            margin-bottom: 1rem;
+        }
+
+        .login-header {
+            color: white;
+        }
+
+        .inactive {
+            margin-bottom: 30px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <main class="main">
+        <div class="container">
+            <div class="row ">
+                <div class="col">
+                    <div class="row main-header text-right">
+                        <div class="col">
+                            <span>A</span>uthorization
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if form.errors %}
+                {% for field in form %}
+                    {% if field.errors %}
+                        {% for eror in field.errors %}
+                            <div class="row justify-content-center inactive">
+                                <div class="login-header">{{ field.name }}: {{ eror | lower }}</div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+                {% if  form.non_field_errors%}
+                    <div class="row justify-content-center inactive">
+                        <div class="login-header">Your account could be inactive.</div>
+                    </div>
+                    <div class="row justify-content-center inactive">
+                        <div class="login-header">{{ form.non_field_errors }}</div>
+                    </div>
+                {% endif %}
+            {% endif %}
+            <div class="row main-inputs justify-content-center">
+                <form class="main-inputs-form" id="login" method="post">
+                    <input name="username" type="text" class="main-input main-input-mini info-input login-space"
+                           placeholder="Username or Email">
+                    <input name="password" type="password" class="main-input main-input-mini info-input login-space"
+                           placeholder="Password">
+                    <a href="reset_password.html">
+                        <p style="color: #B48888;">Forgot your password?</p>
+                    </a>
+                    <p style="color: #FFFFFF;">Restore</p>
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}"/>
+                    <div class="login-space">
+                        <button type="submit" class="btn btn-primary main-inputs-btn main-inputs-button">Log in</button>
+                        <p style="color: #B48888; text-align: center;">OR</p>
+                        <a class="btn btn-primary main-inputs-btn" href="{% url 'register' %}">Sign up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}

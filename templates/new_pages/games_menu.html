@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block  head %}
+<link rel="stylesheet" href="{% static "css/tournaments.css" %}">
+
+<style>
+	.games-menu-cards {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.game-menu {
+		justify-content: space-between;
+	}
+</style>
+{% endblock %}
+{% block content %}
+
+
+<div class="btn-position">
+	<button type="submit" class="main-inputs-btn ">Log Out</button>
+</div>
+<main class="main-tour">
+	<div class="btns-pos">
+		<button type="submit" class="main-inputs-btn btn-search "><img class="btn-user" src="{% static "img/search.png" %}"
+				alt=""></button>
+		<button type="submit" class="main-inputs-btn btn-search">View Teams</button>
+		<button type="submit" class="main-inputs-btn btn-search"><img class="btn-user" src="{% static "img/user.png" %}"
+				alt=""></button>
+	</div>
+	<div class="game-menu">
+		<p>Tournament</p>
+		<ul class="game-type">
+			<li class="game-name">CS:GO</li>
+			<li class="game-name">Dota2</li>
+			<li class="game-name">PugbMobile</li>
+			<li class="game-name">All</li>
+		</ul>
+
+	</div>
+	<div class="grid-container games-menu-cards">
+		<div class="teams-icon-1 post icon-pos">
+			<a href="tournaments.html"><img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""> <br> Organize
+				tournament </a>
+		</div>
+		<div><img src="../img/games foto/Card_0.png" alt=""></div>
+		<div><img src="../img/games foto/Card_1.png" alt=""></div>
+		<div><img src="../img/games foto/Card_2.png" alt=""></div>
+		<div><img src="../img/games foto/Card_3.png" alt=""></div>
+		<div><img src="../img/games foto/Card_4.png" alt=""></div>
+		<div><img src="../img/games foto/Card_5.png" alt=""></div>
+		<div><img src="../img/games foto/Card_6.png" alt=""></div>
+		<div><img src="../img/games foto/Card_7.png" alt=""></div>
+		<div><img src="../img/games foto/Card_9.png" alt=""></div>
+
+	</div>
+</main>
+
+
+
+
+{% endblock %}

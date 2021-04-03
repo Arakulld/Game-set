@@ -1,0 +1,59 @@
+from django.db import models
+from django.conf import settings
+
+
+class Team(models.Model):
+    name = models.CharField(max_length=32)
+    slug = models.SlugField(unique=True)
+    participants = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='teams', blank=True)
+    tournaments = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='teams_registered', blank=True)
+
+
+class Tournament(models.Model):
+    class Status(models.TextChoices):
+        OPENED = 'Open'
+        CLOSED = 'Close'
+
+    name = models.CharField(max_length=64)
+    slug = models.SlugField(unique=True)
+    description = models.TextField()
+    img = models.ImageField(upload_to='tournaments', blank=True)
+    status = models.CharField(choices=Status.choices, max_length=16)
+
+    game = models.ForeignKey('Game', related_name='tournament', on_delete=models.CASCADE)
+    game_format = models.ForeignKey('GameFormat', related_name='tournament', on_delete=models.CASCADE)
+    max_participants = models.IntegerField()
+    participants = models.ManyToManyField('account.TournamentAccount', related_name='in_t', blank=True)
+    communication = models.CharField(max_length=64)
+    likes = models.ManyToManyField('account.TournamentAccount', related_name='fav_t', blank=True)
+
+    contact_detail = models.TextField(blank=True)
+    rules = models.TextField(blank=True)
+    schedule = models.TextField(blank=True)
+
+    start = models.DateTimeField()
+    end = models.DateTimeField()
+
+    def __str__(self):
+        return self.slug
+
+    def save(self, *args, **kwargs):
+        if self.img:
+            self.img.name = 'images/' + self.slug + '/' + 'main_image' + self.img.url.rsplit('.', 1)[1].lower()
+        super(Tournament, self).save()
+
+
+class GameFormat(models.Model):
+    name = models.CharField(max_length=64)
+    game = models.ForeignKey('Game', related_name='formats', on_delete=models.CASCADE)
+    max_players = models.IntegerField()
+
+    def __str__(self):
+        return self.name + ' ' + self.game.name
+
+
+class Game(models.Model):
+    name = models.CharField(max_length=64, primary_key=True)
+
+    def __str__(self):
+        return self.name

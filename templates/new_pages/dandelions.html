@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block  head %}
+  <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
+	<link rel="stylesheet" href="{% static "css/pubg-main.css" %}">
+	<link rel="stylesheet" href="{% static "css/tabs.css" %}">
+	<link rel="stylesheet" href="{% static "css/slide-pages.css" %}">
+{% endblock %}
+{% block title %}Create tournament new{% endblock %}
+{% block content %}
+
+  <div class="justify-content-end btn-position ">
+    <button type="submit" class="btn btn-primary main-inputs-btn ">Main</button>
+  </div>
+  <main class="main-tour">
+		<div class="row main-header text-right">
+      <div class="col">
+        <span>D</span>andelions
+      </div>
+    </div>
+    <div class=" menu-description">
+      <div class="row justify-content-between pubg-info">
+        <div class="col ">
+          <img class="pubg-photo" src="{% static "img/team.png" %}"  width="450px" height="100px"alt="photo">
+        </div>
+      </div>
+      <ul>
+        <li>Game</li>
+        <li>Captain</li>
+        <li>Discription</li>
+      </ul>
+      <ul class="descr-color">
+        <li>Game Name</li>
+        <li>Player Name</li>
+        <li>Description textLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+      </ul>
+    </div>
+    <div class="justify-content-end">
+      <button type="submit" class="btn btn-primary main-inputs-btn">Edit Team</button>
+    </div>
+    <div class="row main-header justify-content-center">
+      <div class="col">
+        <span>T</span>eam Members
+      </div>
+    </div>
+    <div class="team-icon-pos" >
+      <div class="teams-icon post"></div>
+      <div class="teams-icon post"></div> 
+      <div class="teams-icon post"></div> 
+      <div class="teams-icon-1 post icon-pos">
+        <input type="file" class="form-control-file">
+        <img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""><br><br> Add member
+      </div>
+      <div class="teams-icon-1 post icon-pos">
+        <input type="file" class="form-control-file">
+        <img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""><br><br> Add member
+      </div>
+      
+        
+    </div>
+
+	</main>
+
+
+{% endblock %}

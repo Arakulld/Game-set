@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}My tournaments{% endblock %}
+{% block content %}
+  <main class="search-main">
+    <div class=" text-posit">
+      <span>M</span>y Tournaments
+    </div>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="form-group d-flex justify-content-between">
+          <input type="text" class="main-input main-search info-input"
+            placeholder="Search ... ">
+            <select class="main-select game-select" size="1">
+              <option class="main-option" disabled selected>Game</option>
+              <option>PUBG Mobile</option>
+              <option>CS:GO</option>
+              <option>DOTA2</option>
+            </select>
+        </div>
+        <div class="col-2">
+          <button type="submit" class="btn btn-primary search-game ">Search</button>			
+        </div>
+      </div>
+    </div>
+    <div class="grid-container">
+
+      <div><img src="{% static "img/games foto/Card_0.png"%}" alt=""></div>
+      <div><img src="{% static "img/games foto/Card_1.png"%}" alt=""></div>
+      <div><img src="{% static "img/games foto/Card_2.png"%}" alt=""></div>
+      <div><img src="{% static "img/games foto/Card_3.png"%}" alt=""></div>
+      <div><img src="{% static "img/games foto/Card_4.png"%}" alt=""></div>
+      <div><img src="{% static "img/games foto/Card_5.png"%}" alt=""></div>
+      <div><img src="{% static "img/games foto/Card_6.png"%}" alt=""></div>
+      <div><img src="{% static "img/games foto/Card_7.png"%}" alt=""></div>
+      <div><img src="{% static "img/games foto/Card_8.png"%}" alt=""></div>
+    </div>
+  </main>
+{% endblock %}

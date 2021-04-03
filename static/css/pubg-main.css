@@ -1,0 +1,124 @@
+body {
+  background: url(../img/bg-color.jpg) center top no-repeat;
+  background-size: cover;
+}
+
+.pubg-btn {
+  padding-right: 0;
+}
+
+.pubg-info {
+  margin-bottom: 20px;
+}
+
+.pubg-desc {
+  margin-bottom: 20px;
+}
+
+.pubg-btns {
+  margin-top: 140px;
+  margin-right: 215px;
+  margin-bottom: 10px;
+}
+
+.pubg-btns .container {
+  margin-right: 0;
+}
+
+.pubg-btn-left {
+  margin-right: 30px;
+}
+
+.pubg-main {
+  padding: 30px 100px 200px 100px;
+  border: 1px solid red;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  margin-right: 215px;
+  margin-left: 215px;
+  margin-bottom: 200px;
+}
+
+.pubg-header {
+  font-weight: 900;
+  font-size: 40px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.pubg-header span {
+  color: red;
+}
+
+.pubg-header-mini {
+  font-weight: bold;
+  font-size: 28px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.pubg-photo {
+  border: 1px solid red;
+  margin-right: 30px;
+}
+
+.pubg-name {
+  font-weight: bold;
+  font-size: 18px;
+  color: #FFFFFF;
+}
+
+.pubg-text {
+  font-weight: bold;
+  font-size: 18px;
+  color: #FFEAEA;
+  padding: 0;
+}
+
+.pubg-text span {
+  color: green;
+}
+
+.pubg-links {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.pubg-links-all {
+  margin-bottom: 20px;
+}
+
+.pubg-contact {
+  padding: 19px 62px;
+  font-weight: 500;
+  font-size: 12px;
+  color: #FFFFFF;
+  background: #B48888;
+  border-radius: 6px;
+  border: none;
+}
+
+.pubg-game {
+  margin-bottom: 30px;
+}
+
+.pubg-game-info {
+  font-weight: 500;
+  font-size: 12px;
+  color: #B48888;
+  margin-bottom: 20px;
+}
+
+.pubg-game-header {
+  font-weight: 900;
+  font-size: 32px;
+  color: #FFEAEA;
+  margin-bottom: 15px;
+}
+
+.pubg-game-text {
+  font-weight: bold;
+  font-size: 16px;
+  color: #FFEAEA;
+  line-height: 19px;
+  margin-bottom: 60px;
+}
