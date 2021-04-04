@@ -5,6 +5,14 @@
 	<link rel="stylesheet" href="{% static "css/pubg-main.css" %}">
 	<link rel="stylesheet" href="{% static "css/tabs.css" %}">
 	<link rel="stylesheet" href="{% static "css/slide-pages.css" %}">
+	<style>
+		#London{
+			display: block;
+		}
+		body {
+			background: url("../../static/img/bg.jpg") center top repeat;
+		}
+	</style>
 {% endblock %}
 {% block title %}Create tournament new{% endblock %}
 {% block content %}
@@ -20,7 +28,7 @@
 					</div>
 					<div>
 						<div class="tab row main-links justify-content-center align-items-center ">
-							<button class="tablinks " onclick="openCity(event, 'London')">Main</button>
+							<button class="tablinks active" onclick="openCity(event, 'London')">Main</button>
 							<button class="tablinks " onclick="openCity(event, 'Tokyo')">Info</button>
 							
 						</div>

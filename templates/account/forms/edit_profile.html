@@ -2,97 +2,188 @@
 {% load static %}
 {% block title %}Profile{% endblock %}
 {% block  head %}
-    <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
-    <style>
-        .profile-header {
-            margin-right: 0;
-            margin-bottom: 0;
-        }
-    </style>
+<link rel="stylesheet" href="{% static "css/tournaments.css" %}">
+<link rel="stylesheet" href="{% static "css/games-cards.css" %}">
+<style>
+	.profile-header {
+		margin-right: 0;
+		margin-bottom: 0;
+	}
+</style>
 {% endblock %}
 {% block content %}
-    <div class="justify-content-end btn-position ">
-        <button type="submit" class="btn btn-primary main-inputs-btn ">Main</button>
-        <button type="submit" class="btn btn-primary main-inputs-btn ">Log out</button>
+<div class="justify-content-end btn-position ">
+	<button type="submit" class="btn btn-primary main-inputs-btn ">Main</button>
+	<button type="submit" class="btn btn-primary main-inputs-btn ">Log out</button>
 
-    </div>
-    <main class="main-tour">
-        <div class="row main-header text-right">
-            <div class="col">
-                <span>P</span>rofile settings
-            </div>
-        </div>
-        <form method="post" action=".">
-            <div class=" menu-description">
-                <div class="row justify-content-between align-items-center pubg-info">
-                    <div class="col d-flex align-items-center">
-                        <div class="teams-icon-1 post icon-pos">
-                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none"
-                                 xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                        d="M28.4999 13.5H16.5001V1.49991C16.5001 0.672089 15.828 0 14.9999 0C14.1721 0 13.5 0.672089 13.5 1.49991V13.5H1.49991C0.672089 13.5 0 14.1721 0 14.9999C0 15.828 0.672089 16.5001 1.49991 16.5001H13.5V28.4999C13.5 29.328 14.1721 30.0001 14.9999 30.0001C15.828 30.0001 16.5001 29.328 16.5001 28.4999V16.5001H28.4999C29.328 16.5001 30.0001 15.828 30.0001 14.9999C30.0001 14.1721 29.328 13.5 28.4999 13.5Z"
-                                        fill="#B48888"></path>
-                            </svg>
-                            <br>Change avatar
-                        </div>
-                        <!-- <img class="pubg-photo" src="img/PhotoFrame.png" alt="photo"> -->
-                    </div>
-                </div>
-                <ul>
-                    <li class="user-info">Tag</li>
-                    <li class="user-info">Username</li>
-                    <li class="user-info">Email</li>
-                    <li class="user-info">Phonenumber</li>
-                    <li class="user-info">Password</li>
-                    <li class="user-info">New Password</li>
-                    <li class="user-info">Verify Password</li>
+</div>
+<main class="main-tour">
+	<div class="row main-header text-right">
+		<div class="col">
+			<span>P</span>rofile settings
+		</div>
+	</div>
+	<form method="post" action=".">
+		<div class=" menu-description">
+			<div class="row justify-content-between align-items-center pubg-info">
+				<div class="col d-flex align-items-center">
+					<div class="teams-icon-1 post icon-pos">
+						<svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M28.4999 13.5H16.5001V1.49991C16.5001 0.672089 15.828 0 14.9999 0C14.1721 0 13.5 0.672089 13.5 1.49991V13.5H1.49991C0.672089 13.5 0 14.1721 0 14.9999C0 15.828 0.672089 16.5001 1.49991 16.5001H13.5V28.4999C13.5 29.328 14.1721 30.0001 14.9999 30.0001C15.828 30.0001 16.5001 29.328 16.5001 28.4999V16.5001H28.4999C29.328 16.5001 30.0001 15.828 30.0001 14.9999C30.0001 14.1721 29.328 13.5 28.4999 13.5Z"
+								fill="#B48888"></path>
+						</svg>
+						<br>Change avatar
+					</div>
+					<!-- <img class="pubg-photo" src="img/PhotoFrame.png" alt="photo"> -->
+				</div>
+			</div>
+			<ul>
+				<li class="user-info">Tag</li>
+				<li class="user-info">Username</li>
+				<li class="user-info">Email</li>
+				<li class="user-info">Phonenumber</li>
+				<li class="user-info">Password</li>
+				<li class="user-info">New Password</li>
+				<li class="user-info">Verify Password</li>
 
-                </ul>
-
-
-                <ul class="descr-color">
-                    <li class="user-info" type="tag">#FV23GG7</li>
-                    <li class="" type="username"><input name="username" type="text"
-                                                        class="user-info-in main-search info-input search-search"
-                                                        placeholder="{{ user.username }}">
-                    </li>
-                    <li class="" type="email"><input name="email" type="text"
-                                                     class="user-info-in main-search info-input"
-                                                     placeholder="{{ user.email }}"></li>
-                    <li class=""><input name="phone_number" type="number" class="user-info-in main-search info-input"
-                                        placeholder="{{ user.account.phone_number }}"></li>
-                    <li class=""><input name="old_password" type="password" class="user-info-in main-search info-input"
-                                        placeholder="**********"></li>
-                    <li class=""><input name="password" type="password" class="user-info-in main-search info-input"
-                                        placeholder="**********"></li>
-                    <li class=""><input name="verify_password" type="password"
-                                        class="user-info-in main-search info-input"
-                                        placeholder="**********"></li>
-                </ul>
-            </div>
-            {% csrf_token %}
-            <div class="justify-content-end">
-                <button type="submit" class="btn btn-primary main-inputs-btn edit-btn">Apply</button>
-            </div>
-        </form>
+			</ul>
 
 
-        <div class="row main-header justify-content-center profile-header">
-            <span>F</span>avorites
-        </div>
-        <div class="grid-container">
+			<ul class="descr-color">
+				<li class="user-info" type="tag">#FV23GG7</li>
+				<li class="" type="username"><input name="username" type="text"
+						class="user-info-in main-search info-input search-search" placeholder="{{ user.username }}">
+				</li>
+				<li class="" type="email"><input name="email" type="text" class="user-info-in main-search info-input"
+						placeholder="{{ user.email }}"></li>
+				<li class=""><input name="phone_number" type="number" class="user-info-in main-search info-input"
+						placeholder="{{ user.account.phone_number }}"></li>
+				<li class=""><input name="old_password" type="password" class="user-info-in main-search info-input"
+						placeholder="**********"></li>
+				<li class=""><input name="password" type="password" class="user-info-in main-search info-input"
+						placeholder="**********"></li>
+				<li class=""><input name="verify_password" type="password" class="user-info-in main-search info-input"
+						placeholder="**********"></li>
+			</ul>
+		</div>
+		{% csrf_token %}
+		<div class="justify-content-end">
+			<button type="submit" class="btn btn-primary main-inputs-btn edit-btn">Apply</button>
+		</div>
+	</form>
 
-            <div><img src="{% static "img/games foto/Card_0.png" %}" alt=""></div>
-            <div><img src="{% static "img/games foto/Card_1.png" %}" alt=""></div>
-            <div><img src="{% static "img/games foto/Card_2.png" %}" alt=""></div>
-            <div><img src="{% static "img/games foto/Card_3.png" %}" alt=""></div>
-            <div><img src="{% static "img/games foto/Card_4.png" %}" alt=""></div>
-            <div><img src="{% static "img/games foto/Card_5.png" %}" alt=""></div>
-            <div><img src="{% static "img/games foto/Card_6.png" %}" alt=""></div>
-            <div><img src="{% static "img/games foto/Card_7.png" %}" alt=""></div>
-            <div><img src="{% static "img/games foto/Card_8.png" %}" alt=""></div>
 
-        </div>
+	<div class="row main-header justify-content-center profile-header">
+		<span>F</span>avorites
+	</div>
 
-    </main>
+	<div class="games-cards">
+		<div class="game-card game-card-0">
+			<div class="game-card-title">
+				PUBG
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+		<div class="game-card game-card-1">
+			<div class="game-card-title">
+				CS:GO
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+		<div class="game-card game-card-2">
+			<div class="game-card-title">
+				Brawl Stars
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+		<div class="game-card game-card-3">
+			<div class="game-card-title">
+				CoD
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+		<div class="game-card game-card-4">
+			<div class="game-card-title">
+				Clash of clans
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+		<div class="game-card game-card-5">
+			<div class="game-card-title">
+				PUBG Mobile
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+		<div class="game-card game-card-6">
+			<div class="game-card-title">
+				Dota 2
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+		<div class="game-card game-card-7">
+			<div class="game-card-title">
+				CS:GO
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+	</div>
+
+</main>
 {% endblock %}

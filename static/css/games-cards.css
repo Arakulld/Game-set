@@ -1,0 +1,48 @@
+.games-cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+.game-card-0 {
+	background: url("../img/games_foto/Card_0.png");
+}
+.game-card-1 {
+	background: url("../img/games_foto/Card_1.png");
+}
+.game-card-2 {
+	background: url("../img/games_foto/Card_2.png");
+}
+.game-card-3 {
+	background: url("../img/games_foto/Card_3.png");
+}
+.game-card-4 {
+	background: url("../img/games_foto/Card_4.png");
+}
+.game-card-5 {
+	background: url("../img/games_foto/Card_5.png");
+}
+.game-card-6 {
+	background: url("../img/games_foto/Card_6.png");
+}
+.game-card-7 {
+	background: url("../img/games_foto/Card_7.png");
+}
+.game-card {
+	color: white;
+	width: 190px;
+	height: 270px;
+	padding: 3%;
+}
+.game-card-title {
+	font-size: 12px;
+	margin-bottom: 115%;
+}
+.game-card-desc {
+	display: flex;
+	font-size: 10px;
+	align-items: center
+}
+.game-card-date {
+	font-size: 8px;
+	text-align: right;
+}

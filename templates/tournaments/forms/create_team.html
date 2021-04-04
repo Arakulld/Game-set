@@ -2,67 +2,45 @@
 {% load static %}
 {% block title %}Add team{% endblock %}
 {% block head %}
-    <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
-    <style>
-        .team-block {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-    </style>
+<link rel="stylesheet" href="{% static "css/tournaments.css" %}">
+<style>
+	.team-block {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.main-header {
+		margin-right: 0;
+	}
+</style>
 {% endblock %}
 
 {% block content %}
-    <main class="main-tour">
-        <div class="row main-header text-right">
-            <div class="col">
-                <span>C</span>reate Team
-            </div>
-        </div>
-        <div class="team-block">
-            <div class="team-block-1">
-                <input type="text" class="main-input-game  info-input" placeholder="Team name">
-                <select class="main-select " size="1">
-                    <option class="main-option" disabled selected>Choose a game...</option>
-                    <option>PUGB Mobile</option>
-                    <option>CS:GO</option>
-                    <option>Dota 2</option>
-                </select>
-            </div>
-            <div class="team-block-2">
-                <div class="main-inputs-file-game">
-                    <input type="file" class="form-control-file">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="main-input-comment" placeholder="Description for your Comments ...">
-                </div>
-            </div>
-        </div>
-        <!-- <div class="btn-create">
-            <button type="submit" id="myBtn" class="btn-primary main-inputs-btn">Create</button>
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <p>Some text in the Modal..</p>
-                </div>
-
-            </div>
-        </div> -->
-        <div class="">
-            <button type="submit" id="myBtn" class="btn-primary main-inputs-btn">Create</button>
-            <div id="myModal" class="modal">
-                <div class="modal-content">
-
-                    <p>Send this ivitation link to your teammates!</p>
-                    <div>
-                        <input type="text" value="https://nbvejsnaenioq34tj09/*wa" id="myInput">
-                        <button onclick="myFunction()"><img src="{% static "img/copy.png" %}" width="15px" height="15px" alt="">
-                        </button>
-                    </div>
-                    <button type="submit" class="btn-primary main-inputs-btn close"> Done</button>
-                </div>
-
-            </div>
-        </div>
-    </main>
+<main class="main-tour">
+	<div class="row main-header justify-content-end">
+		<span>C</span>reate Team
+	</div>
+	<div class="team-block">
+		<div class="team-block-1">
+			<input type="text" class="main-input-game  info-input" placeholder="Team name">
+			<select class="main-select " size="1">
+				<option class="main-option" disabled selected>Choose a game...</option>
+				<option>PUGB Mobile</option>
+				<option>CS:GO</option>
+				<option>Dota 2</option>
+			</select>
+		</div>
+		<div class="team-block-2">
+			<div class="main-inputs-file-game">
+				<input type="file" class="form-control-file">
+			</div>
+			<div class="form-group">
+				<input type="text" class="main-input-comment" placeholder="Description for your Comments ...">
+			</div>
+		</div>
+		<button type="submit" id="myBtn" class="btn-primary main-inputs-btn">Create</button>
+	</div>
+	
+</main>
 {% endblock %}

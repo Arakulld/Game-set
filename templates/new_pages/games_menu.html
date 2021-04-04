@@ -3,14 +3,31 @@
 {% block title %}{% endblock %}
 {% block  head %}
 <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
-
+<link rel="stylesheet" href="{% static "css/games-cards.css" %}">
 <style>
 	.games-menu-cards {
 		padding-left: 0;
 		padding-right: 0;
 	}
+
 	.game-menu {
 		justify-content: space-between;
+	}
+
+	.game-add {
+		background: url("../../static/img/game-add-bg.png");
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		text-align: center
+	}
+	.orginize {
+		margin-bottom: 50%;
+		color: white;
+		background: transparent;
+		border: none;
+		font-size: 50px;
 	}
 </style>
 {% endblock %}
@@ -22,8 +39,8 @@
 </div>
 <main class="main-tour">
 	<div class="btns-pos">
-		<button type="submit" class="main-inputs-btn btn-search "><img class="btn-user" src="{% static "img/search.png" %}"
-				alt=""></button>
+		<button type="submit" class="main-inputs-btn btn-search "><img class="btn-user"
+				src="{% static "img/search.png" %}" alt=""></button>
 		<button type="submit" class="main-inputs-btn btn-search">View Teams</button>
 		<button type="submit" class="main-inputs-btn btn-search"><img class="btn-user" src="{% static "img/user.png" %}"
 				alt=""></button>
@@ -38,22 +55,122 @@
 		</ul>
 
 	</div>
-	<div class="grid-container games-menu-cards">
-		<div class="teams-icon-1 post icon-pos">
-			<a href="tournaments.html"><img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""> <br> Organize
-				tournament </a>
-		</div>
-		<div><img src="../img/games foto/Card_0.png" alt=""></div>
-		<div><img src="../img/games foto/Card_1.png" alt=""></div>
-		<div><img src="../img/games foto/Card_2.png" alt=""></div>
-		<div><img src="../img/games foto/Card_3.png" alt=""></div>
-		<div><img src="../img/games foto/Card_4.png" alt=""></div>
-		<div><img src="../img/games foto/Card_5.png" alt=""></div>
-		<div><img src="../img/games foto/Card_6.png" alt=""></div>
-		<div><img src="../img/games foto/Card_7.png" alt=""></div>
-		<div><img src="../img/games foto/Card_9.png" alt=""></div>
 
+	<div class="games-cards">
+		<div class="game-card game-card-0 game-add">
+			<div>
+				<button class="orginize">+</button>
+			</div>
+			<div>
+				Organize tournament
+			</div>
+		</div>
+		<div class="game-card game-card-0">
+			<div class="game-card-title">
+				PUBG
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+		<div class="game-card game-card-1">
+			<div class="game-card-title">
+				CS:GO
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+		<div class="game-card game-card-2">
+			<div class="game-card-title">
+				Brawl Stars
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+		<div class="game-card game-card-3">
+			<div class="game-card-title">
+				CoD
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+		<div class="game-card game-card-4">
+			<div class="game-card-title">
+				Clash of clans
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+		<div class="game-card game-card-5">
+			<div class="game-card-title">
+				PUBG Mobile
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+		<div class="game-card game-card-6">
+			<div class="game-card-title">
+				Dota 2
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
+		<div class="game-card game-card-7">
+			<div class="game-card-title">
+				CS:GO
+			</div>
+			<div class="game-card-desc">
+				<div class="game-card-type">
+					Tonight battle 5x5 with crisps
+				</div>
+				<div class="game-card-date">
+					12 December
+				</div>
+			</div>
+		</div>
 	</div>
+
 </main>
 
 

@@ -6,13 +6,32 @@
 <link rel="stylesheet" href="{% static "css/pubg-main.css" %}">
 <link rel="stylesheet" href="{% static "css/tabs.css" %}">
 <link rel="stylesheet" href="{% static "css/slide-pages.css" %}">
+<link rel="stylesheet" href="{% static "css/games-cards.css" %}">
 <style>
 	.head-of-comm {
 		width: 100%;
 	}
-
 	.input-comm {
 		width: 85%;
+	}
+	#first-page {
+		display: block;
+	}
+	.cards {
+		padding: 10%;
+		flex-direction: column;
+	}
+	.group-name {
+		margin-bottom: 75%;
+	}
+	ul.todo {
+		margin: 0;
+	}
+	.head-of-comm {
+		margin-bottom: 0;
+	}
+	#fifth-page {
+		color: white;
 	}
 </style>
 {% endblock %}
@@ -58,11 +77,11 @@
 
 	<div>
 		<div class="tab row main-links justify-content-around align-items-center pubg-links-all">
-			<button class="tablinks " onclick="openCity(event, 'first-page')">Overview</button>
+			<button class="tablinks active" onclick="openCity(event, 'first-page')">Overview</button>
 			<button class="tablinks " onclick="openCity(event, 'second-page')">Participants</button>
 			<button class="tablinks" onclick="openCity(event, 'third-page')">Media</button>
 			<button class="tablinks" onclick="openCity(event,'fourth-page')">Announcements</button>
-			<button class=" manage " onclick="openCity(event, 'fifth-page')">Manage</button>
+			<button class=" tablinks " onclick="openCity(event, 'fifth-page')">Manage</button>
 		</div>
 
 		<div id="first-page" class="tabcontent">
@@ -139,73 +158,152 @@
 		<div id="second-page" class="tabcontent">
 			<div class="row ">
 				<div class="col-md-3">
-					<div class="cards">
+					<div class="cards d-flex align-items-center">
 						<p class="group-name">FirsGroup</p>
-						<p class="game-name">Pugb</p>
 						<p class="player-name">Arakull</p>
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="cards">
+					<div class="cards d-flex align-items-center">
 						<p class="group-name">FirsGroup</p>
-						<p class="game-name">Pugb</p>
 						<p class="player-name">Arakull</p>
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="cards">
+					<div class="cards d-flex align-items-center">
 						<p class="group-name">FirsGroup</p>
-						<p class="game-name">Pugb</p>
 						<p class="player-name">Arakull</p>
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="cards">
+					<div class="cards d-flex align-items-center">
 						<p class="group-name">FirsGroup</p>
-						<p class="game-name">Pugb</p>
 						<p class="player-name">Arakull</p>
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="cards">
-						<!-- <img src="{% static "img/bg_card_foto.png" %}" alt="game"> -->
-
+					<div class="cards d-flex align-items-center">
 						<p class="group-name">FirsGroup</p>
-						<p class="game-name">Pugb</p>
 						<p class="player-name">Arakull</p>
 					</div>
 				</div>
 				<div class="col-md-3">
-					<div class="cards" >
+					<div class="cards d-flex align-items-center">
 						<p class="group-name">FirsGroup</p>
-						<p class="game-name">Pugb</p>
 						<p class="player-name">Arakull</p>
 					</div>
 				</div>
-				<div class="col-md-3">
-					<div class="cards">
-						<p class="group-name">FirsGroup</p>
-						<p class="game-name">Pugb</p>
-						<p class="player-name">Arakull</p>
-					</div>
-				</div>
-
 			</div>
 		</div>
 
 		<div id="third-page" class="tabcontent">
-			<div class="grid-container">
-			
-				<div><img src="{% static "img/games foto/Card_0.png" %}" alt=""></div>
-				<div><img src="{% static "img/games foto/Card_1.png" %}" alt=""></div>
-				<div><img src="{% static "img/games foto/Card_2.png" %}" alt=""></div>
-				<div><img src="{% static "img/games foto/Card_3.png" %}" alt=""></div>
-				<div><img src="{% static "img/games foto/Card_4.png" %}" alt=""></div>
-				<div><img src="{% static "img/games foto/Card_5.png" %}" alt=""></div>
-				<div><img src="{% static "img/games foto/Card_6.png" %}" alt=""></div>
-				<div><img src="{% static "img/games foto/Card_7.png" %}" alt=""></div>
-				<div><img src="{% static "img/games foto/Card_8.png" %}" alt=""></div>
 
+
+			<div class="games-cards">
+				<div class="game-card game-card-0">
+					<div class="game-card-title">
+						PUBG
+					</div>
+					<div class="game-card-desc">
+						<div class="game-card-type">
+							Tonight battle 5x5 with crisps
+						</div>
+						<div class="game-card-date">
+							12 December
+						</div>
+					</div>
+				</div>
+				<div class="game-card game-card-1">
+					<div class="game-card-title">
+						CS:GO
+					</div>
+					<div class="game-card-desc">
+						<div class="game-card-type">
+							Tonight battle 5x5 with crisps
+						</div>
+						<div class="game-card-date">
+							12 December
+						</div>
+					</div>
+				</div>
+				<div class="game-card game-card-2">
+					<div class="game-card-title">
+						Brawl Stars
+					</div>
+					<div class="game-card-desc">
+						<div class="game-card-type">
+							Tonight battle 5x5 with crisps
+						</div>
+						<div class="game-card-date">
+							12 December
+						</div>
+					</div>
+				</div>
+				<div class="game-card game-card-3">
+					<div class="game-card-title">
+						CoD
+					</div>
+					<div class="game-card-desc">
+						<div class="game-card-type">
+							Tonight battle 5x5 with crisps
+						</div>
+						<div class="game-card-date">
+							12 December
+						</div>
+					</div>
+				</div>
+				<div class="game-card game-card-4">
+					<div class="game-card-title">
+						Clash of clans
+					</div>
+					<div class="game-card-desc">
+						<div class="game-card-type">
+							Tonight battle 5x5 with crisps
+						</div>
+						<div class="game-card-date">
+							12 December
+						</div>
+					</div>
+				</div>
+				<div class="game-card game-card-5">
+					<div class="game-card-title">
+						PUBG Mobile
+					</div>
+					<div class="game-card-desc">
+						<div class="game-card-type">
+							Tonight battle 5x5 with crisps
+						</div>
+						<div class="game-card-date">
+							12 December
+						</div>
+					</div>
+				</div>
+				<div class="game-card game-card-6">
+					<div class="game-card-title">
+						Dota 2
+					</div>
+					<div class="game-card-desc">
+						<div class="game-card-type">
+							Tonight battle 5x5 with crisps
+						</div>
+						<div class="game-card-date">
+							12 December
+						</div>
+					</div>
+				</div>
+				<div class="game-card game-card-7">
+					<div class="game-card-title">
+						CS:GO
+					</div>
+					<div class="game-card-desc">
+						<div class="game-card-type">
+							Tonight battle 5x5 with crisps
+						</div>
+						<div class="game-card-date">
+							12 December
+						</div>
+					</div>
+				</div>
 			</div>
 
 		</div>
@@ -229,8 +327,7 @@
 
 		</div>
 		<div id="fifth-page" class="tabcontent">
-			<h3>Manage</h3>
-			<p>Tokyo is the capital of Japan.</p>
+			В разработке
 		</div>
 	</div>
 
@@ -242,8 +339,9 @@
 	$(document).ready(function () {
 		$("#send").on("click", function (e) {
 			e.preventDefault();
-			let valInput = document.querySelector("#myInput").value;
-			$(".todo").append(`<li class="to-do-list" type="text">${valInput}</li>`);
+			let valInput = document.querySelector("#myInput");
+			$(".todo").append(`<li class="to-do-list" type="text">${valInput.value}</li>`);
+			document.querySelector("#myInput").value = "";
 		})
 	})
 </script>
