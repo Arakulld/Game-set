@@ -47,26 +47,23 @@ urlpatterns = [
 
     # Tournaments forms files
     path('create_team/', tv.create_team, name='create_team'),
-    path('create_tournament_info/', tv.tournament_info, name='create_tournament_info'),
     path('edit_team/', tv.edit_team, name='edit_team'),
 
     # Tournaments utils file
     path('tournament_detail_header/', tv.tourn_detail_header, name='tournament_detail_header'),
-    path('messages/', tv.messages, name='messages'),
 
     
     # Tournaments files
     path('user_tournaments_list/', tv.user_tournaments_list, name='user_tournaments_list'),
     path('search_tournaments_list/', tv.search_tournaments_list, name='search_tournaments_list'),
-    path('tournament_detail_overview/', tv.tourn_detail_overview, name='tournament_detail_overview'),
     path('', include('tournaments.urls')),
     path('', include('account.common_urls')),
     path('account/', include('account.account_urls')),
     path('admin/', admin.site.urls),
 
     # New pages
-    path('create_tournaments/', tv.create_tournaments, name='create_tournaments'),
-    path('dandelions/', tv.dandelions, name='dandelions'),
+    path('team_list/', tv.team_list),
+    path('dandelions/', tv.team_detail, name='dandelions'),
     path('empty_list/', tv.empty_list, name='empty_list'),
     path('games_menu/', tv.games_menu, name='games_menu'),
     path('pugb_page/', tv.pugb_page, name='pugb_page'),

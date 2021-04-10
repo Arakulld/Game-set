@@ -107,7 +107,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
 USE_TZ = True
 
@@ -130,10 +130,19 @@ LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'profile'
 LOGOUT_REDIRECT_URL = 'login'
 
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 ACTIVATE_EMAIL = 'templates/email/activate_account_pattern.html'
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'gotygerman@gmail.com'
-EMAIL_HOST_PASSWORD = 'GotyGotyGoty'
+EMAIL_HOST_USER = 'platform6697@gmail.com'
+EMAIL_HOST_PASSWORD = 'Gamingplatform'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+DATE_INPUT_FORMATS = [
+    '%Y-%m-%d', '%m/%d/%Y', '%m/%d/%y', '%d/%m/%Y',  # '2006-10-25', '10/25/2006', '10/25/06', '10/02/2006'
+    '%b %d %Y', '%b %d, %Y',  # 'Oct 25 2006', 'Oct 25, 2006'
+    '%d %b %Y', '%d %b, %Y',  # '25 Oct 2006', '25 Oct, 2006'
+    '%B %d %Y', '%B %d, %Y',  # 'October 25 2006', 'October 25, 2006'
+    '%d %B %Y', '%d %B, %Y',  # '25 October 2006', '25 October, 2006'
+]

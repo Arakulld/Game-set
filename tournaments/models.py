@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from slugify import slugify
 
 
 class Team(models.Model):
@@ -18,26 +19,30 @@ class Tournament(models.Model):
     slug = models.SlugField(unique=True)
     description = models.TextField()
     img = models.ImageField(upload_to='tournaments', blank=True)
-    status = models.CharField(choices=Status.choices, max_length=16)
+    status = models.CharField(choices=Status.choices, default=Status.OPENED, max_length=16)
 
     game = models.ForeignKey('Game', related_name='tournament', on_delete=models.CASCADE)
     game_format = models.ForeignKey('GameFormat', related_name='tournament', on_delete=models.CASCADE)
     max_participants = models.IntegerField()
     participants = models.ManyToManyField('account.TournamentAccount', related_name='in_t', blank=True)
-    communication = models.CharField(max_length=64)
     likes = models.ManyToManyField('account.TournamentAccount', related_name='fav_t', blank=True)
 
+    communication = models.CharField(max_length=64)
     contact_detail = models.TextField(blank=True)
     rules = models.TextField(blank=True)
     schedule = models.TextField(blank=True)
+    prizes = models.TextField(blank=True)
 
-    start = models.DateTimeField()
-    end = models.DateTimeField()
+    start_date = models.DateField()
+    start_time = models.TimeField()
+    end = models.DateTimeField(blank=True)
 
     def __str__(self):
         return self.slug
 
     def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
         if self.img:
             self.img.name = 'images/' + self.slug + '/' + 'main_image' + self.img.url.rsplit('.', 1)[1].lower()
         super(Tournament, self).save()

@@ -1,12 +1,27 @@
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404
-from tournaments.models import Tournament
+from django.shortcuts import render, redirect
+from django.views.generic import TemplateView
+from .forms import TournamentCreateForm
+
+
+class CreateTournament(TemplateView):
+    template_name = 'tournaments/forms/create_tournament.html'
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context)
+
+    def post(self, request, *args, **kwargs):
+        form = TournamentCreateForm(data=request.POST, files=request.FILES)
+        context = self.get_context_data(**kwargs)
+        if form.is_valid():
+            form.save()
+            return redirect()
+        return self.render_to_response(context)
 
 
 def test_view(request):
     return render(request=request,
-                  template_name='account/profile.html')
+                  template_name='tournaments/forms/create_tournament.html')
 
 
 # Templates \ base
@@ -41,6 +56,7 @@ def reset_password_pattern(request):
     return render(request=request,
                   template_name='email/reset_password_pattern.html')
 
+
 def activate_account_pattern(request):
     return render(request=request,
                   template_name='email/activate_account_pattern.html')
@@ -51,9 +67,11 @@ def logout(request):
     return render(request=request,
                   template_name='account/logout.html')
 
+
 def profile(request):
     return render(request=request,
                   template_name='account/profile.html')
+
 
 def register_done(request):
     return render(request=request,
@@ -76,11 +94,6 @@ def create_team(request):
                   template_name='tournaments/forms/create_team.html')
 
 
-def tournament_info(request):
-    return render(request=request,
-                  template_name='tournaments/forms/create_tournament_info.html')
-
-
 def edit_team(request):
     return render(request=request,
                   template_name='tournaments/forms/edit_team.html')
@@ -90,10 +103,6 @@ def edit_team(request):
 def tourn_detail_header(request):
     return render(request=request,
                   template_name='tournaments/utils/tournament_detail_header.html')
-
-def messages(request):
-    return render(request=request,
-                  template_name='tournaments/utils/messages.html')
 
 
 # Tournaments files
@@ -107,43 +116,32 @@ def search_tournaments_list(request):
                   template_name='tournaments/search_tournaments_list.html')
 
 
-def tourn_detail_overview(request):
-    return render(request=request,
-                  template_name='tournaments/tournament_detail_overview.html')
-
-
 # New pages
-def create_tournaments(request):
+def team_list(request):
     return render(request=request,
-                  template_name='new_pages/create_tournaments.html')
+                  template_name='new_pages/team_list.html')
 
-def dandelions(request):
+
+def team_detail(request):
     return render(request=request,
-                  template_name='new_pages/dandelions.html')
+                  template_name='new_pages/team_detail.html')
+
 
 def empty_list(request):
     return render(request=request,
                   template_name='new_pages/empty_team_list.html')
 
+
 def games_menu(request):
     return render(request=request,
                   template_name='new_pages/games_menu.html')
 
+
 def pugb_page(request):
     return render(request=request,
-                  template_name='new_pages/pugb_page.html')
+                  template_name='tournaments/forms/create_tournament.html')
+
 
 def to_do_list(request):
     return render(request=request,
                   template_name='new_pages/to_do_list.html')
-
-
-
-
-@login_required
-def tournament_detail(request, slug):
-    tournament = get_object_or_404(Tournament, slug=slug)
-    return render(request=request,
-                  template_name='tournaments/tournament_detail_overview.html',
-                  context={'tournament': tournament,
-                           'user': request.user}, )
