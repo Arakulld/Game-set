@@ -68,6 +68,7 @@ urlpatterns = [
     path('games_menu/', tv.games_menu, name='games_menu'),
     path('pugb_page/', tv.pugb_page, name='pugb_page'),
     path('to_do_list/', tv.to_do_list, name='to_do_list'),
+	path('to_do_list_user/', tv.to_do_list_user, name='to_do_list_user'),
 
 ]
 

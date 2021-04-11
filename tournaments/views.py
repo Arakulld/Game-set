@@ -165,3 +165,7 @@ def pugb_page(request):
 def to_do_list(request):
     return render(request=request,
                   template_name='new_pages/to_do_list.html')
+
+def to_do_list_user(request):
+    return render(request=request,
+                  template_name='new_pages/to_do_list_user.html')
