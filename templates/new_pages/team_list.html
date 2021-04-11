@@ -1,46 +1,78 @@
 {% extends "base.html" %}
 {% load static %}
 {% block  head %}
-  <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
-	<link rel="stylesheet" href="{% static "css/pubg-main.css" %}">
-	<link rel="stylesheet" href="{% static "css/tabs.css" %}">
-	<link rel="stylesheet" href="{% static "css/slide-pages.css" %}">
+<link rel="stylesheet" href="{% static "css/tournaments.css" %}">
+<link rel="stylesheet" href="{% static "css/pubg-main.css" %}">
+<link rel="stylesheet" href="{% static "css/tabs.css" %}">
+<link rel="stylesheet" href="{% static "css/slide-pages.css" %}">
+<style>
+	.new-games-block {
+		margin-left: 0;
+		margin-right: 0;
+		align-items: center;
+	}
+	.cards {
+		display: flex;
+		flex-direction: column;
+		margin-left: 0;
+		padding-top: 1%;
+	}
+	.game-name{
+		text-align: center;
+		margin-left: 0;
+		margin-bottom: 50%;
+	}
+	.player-name {
+		text-align: center;
+		margin-bottom: 0;
+	}
+	.new-games-block-button {
+		margin: 0;
+		margin-left: 50%;
+	}
+
+	.cards {
+		background: black;
+	}
+
+</style>
 {% endblock %}
 {% block title %}Create tournament new{% endblock %}
 {% block content %}
-  <main class="main-tour">
-		<div class="row main-header text-right">
-      <div class="col">
-        <span>T</span>eams Lists
-      </div>
-    </div>
-    <div class="justify-content-end tour">
-      <button type="submit" class="btn btn-primary main-inputs-btn main-inputs-button">Create Team</button>
-    </div>
-    <div >
-      <div class="new-games-block">
-        <div class="cards">
-          <p class="group-name">FirsGroup</p>
-          <p class="game-name">Dota2</p>
-          <p class="player-name">Arakull</p>
-        </div>
-        <div class="new-games-block-button">
-          <button type="submit" class=" main-inputs-btn">Details</button> <br>
-          <button type="submit" class=" main-inputs-btn">Delete</button>
-        </div>
-      </div>
-      <div class="new-games-block">
-        <div class="cards">
-          <p class="group-name">FirsGroup</p>
-          <p class="game-name">Pugb</p>
-          <p class="player-name">Arakull</p>
-        </div>
-        <div class="new-games-block-button justify-content-end">
-          <button type="submit" class=" main-inputs-btn">Details</button> <br>
-          <button type="submit" class=" main-inputs-btn">Delete</button>
-        </div>
-      </div>
-    </div>  
-	</main>
+<main class="main-tour">
+	<div class="row main-header text-right">
+		<div class="col">
+			<span>T</span>eams Lists
+		</div>
+	</div>
+	<div class="justify-content-end tour">
+		<button type="submit" class="btn btn-primary main-inputs-btn main-inputs-button">Create Team</button>
+	</div>
+	<div>
+		<div class="new-games-block">
+			<div class="cards">
+				<p class="group-name">FirsGroup</p>
+				<p class="game-name">Dota2</p>
+				<p class="player-name">Arakull</p>
+			</div>
+			<div class="new-games-block-button">
+				<button type="submit" class=" main-inputs-btn">Details</button> <br>
+				<button type="submit" class=" main-inputs-btn">Delete</button>
+			</div>
+		</div>
+		<div class="new-games-block">
+			<div class="cards">
+				<p class="group-name">FirsGroup</p>
+				<p class="game-name">Dota2</p>
+				<p class="player-name">Arakull</p>
+			</div>
+			<div class="new-games-block-button">
+				<button type="submit" class=" main-inputs-btn">Details</button> <br>
+				<button type="submit" class=" main-inputs-btn">Delete</button>
+			</div>
+		</div>
+		
+	</div>
+</main>
 
 {% endblock %}
