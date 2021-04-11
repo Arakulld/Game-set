@@ -78,12 +78,13 @@ class EditUserForm(forms.Form):
 class AccountForm(forms.Form):
     phone_number = forms.CharField(max_length=16, required=False)
 
-    def __init__(self, instance, *args, **kwargs):
-        self.instance = instance
+    def __init__(self, instance=None, *args, **kwargs):
+        if instance:
+            self.instance = instance
         super(AccountForm, self).__init__(*args, **kwargs)
 
     def clean_phone_number(self):
         phone_number = self.cleaned_data['phone_number']
-        if not phone_number:
+        if not phone_number and self.instance:
             return self.instance.phone_number
         return phone_number

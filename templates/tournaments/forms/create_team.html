@@ -2,45 +2,48 @@
 {% load static %}
 {% block title %}Add team{% endblock %}
 {% block head %}
-<link rel="stylesheet" href="{% static "css/tournaments.css" %}">
-<style>
-	.team-block {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
+    <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
+    <style>
+        .team-block {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-	.main-header {
-		margin-right: 0;
-	}
-</style>
+        .main-header {
+            margin-right: 0;
+        }
+    </style>
 {% endblock %}
 
 {% block content %}
-<main class="main-tour">
-	<div class="row main-header justify-content-end">
-		<span>C</span>reate Team
-	</div>
-	<div class="team-block">
-		<div class="team-block-1">
-			<input type="text" class="main-input-game  info-input" placeholder="Team name">
-			<select class="main-select " size="1">
-				<option class="main-option" disabled selected>Choose a game...</option>
-				<option>PUGB Mobile</option>
-				<option>CS:GO</option>
-				<option>Dota 2</option>
-			</select>
-		</div>
-		<div class="team-block-2">
-			<div class="main-inputs-file-game">
-				<input type="file" class="form-control-file">
-			</div>
-			<div class="form-group">
-				<input type="text" class="main-input-comment" placeholder="Description for your Comments ...">
-			</div>
-		</div>
-		<button type="submit" id="myBtn" class="btn-primary main-inputs-btn">Create</button>
-	</div>
-	
-</main>
+    <main class="main-tour">
+        <div class="row main-header justify-content-end">
+            <span>C</span>reate Team
+        </div>
+        <form action="." method="post" enctype="multipart/form-data">
+            <div class="team-block">
+                <div class="team-block-1">
+                    <input name="name" type="text" class="main-input-game  info-input" placeholder="Team name">
+                    <select name="game" class="main-select " size="1">
+                        <option class="main-option" disabled selected>Choose a game...</option>
+                        <option>PUBG Mobile</option>
+                        <option>CS:GO</option>
+                        <option>DOTA 2</option>
+                    </select>
+                </div>
+                <div class="team-block-2">
+                    <div class="main-inputs-file-game">
+                        <input name="img" type="file" accept="image/*" class="form-control-file">
+                    </div>
+                    <div class="form-group">
+                        <input name="description" type="text" class="main-input-comment"
+                               placeholder="Description for your Comments ...">
+                    </div>
+                </div>
+                {% csrf_token %}
+                <button type="submit" id="myBtn" class="btn-primary main-inputs-btn">Create</button>
+            </div>
+        </form>
+    </main>
 {% endblock %}

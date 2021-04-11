@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
-from .forms import TournamentCreateForm
+from .forms import TournamentCreateForm, TeamCreateForm
 
 
 class CreateTournament(TemplateView):
@@ -11,11 +11,31 @@ class CreateTournament(TemplateView):
         return self.render_to_response(context)
 
     def post(self, request, *args, **kwargs):
+        from common.services import throw_form_errors_as_message
         form = TournamentCreateForm(data=request.POST, files=request.FILES)
         context = self.get_context_data(**kwargs)
         if form.is_valid():
             form.save()
             return redirect()
+        throw_form_errors_as_message(request, form)
+        return self.render_to_response(context)
+
+
+class CreateTeam(TemplateView):
+    template_name = 'tournaments/forms/create_team.html'
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        return self.render_to_response(context)
+
+    def post(self, request, *args, **kwargs):
+        from common.services import throw_form_errors_as_message
+        form = TeamCreateForm(user=request.user, data=request.POST, files=request.FILES)
+        context = self.get_context_data(**kwargs)
+        if form.is_valid():
+            form.save()
+            return redirect()
+        throw_form_errors_as_message(request, form)
         return self.render_to_response(context)
 
 

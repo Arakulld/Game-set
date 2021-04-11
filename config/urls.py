@@ -46,7 +46,7 @@ urlpatterns = [
     path('reset_password/', tv.reset_password, name='reset_password'),
 
     # Tournaments forms files
-    path('create_team/', tv.create_team, name='create_team'),
+    # path('create_team/', tv.create_team, name='create_team'),
     path('edit_team/', tv.edit_team, name='edit_team'),
 
     # Tournaments utils file

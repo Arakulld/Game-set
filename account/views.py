@@ -92,7 +92,7 @@ class EditProfileView(TemplateView):
             messages.success(request=request, message='Updated successfully')
             return redirect('profile')
         else:
-            from .services import throw_form_errors_as_message
+            from common.services import throw_form_errors_as_message
 
             throw_form_errors_as_message(request, user_form)
             return self.render_to_response(context)
@@ -127,7 +127,7 @@ class RegisterView(TemplateView):
             TournamentAccount.objects.create(user=new_user,
                                              phone_number=a_cd['phone_number'] if a_cd['phone_number'] else None)
             from django.utils.html import strip_tags
-            from .services import base64_encode_time_now
+            from common.services import base64_encode_time_now
 
             token = base64_encode_time_now(new_user.username)
             activate_token = ActivateToken.objects.create(token=token, user=new_user)
@@ -142,7 +142,7 @@ class RegisterView(TemplateView):
             msg.attach_alternative(html_message, 'text/html')
             msg.send()
         elif user_form.errors:
-            from .services import throw_form_errors_as_message
+            from common.services import throw_form_errors_as_message
             throw_form_errors_as_message(request, user_form)
             return self.render_to_response(context=self.get_context_data(**kwargs))
         return redirect('register_confirm')

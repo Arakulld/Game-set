@@ -4,10 +4,20 @@ from slugify import slugify
 
 
 class Team(models.Model):
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='created_teams')
     name = models.CharField(max_length=32)
     slug = models.SlugField(unique=True)
+    game = models.ForeignKey('Game', related_name='teams', on_delete=models.CASCADE)
+    description = models.TextField()
     participants = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='teams', blank=True)
-    tournaments = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='teams_registered', blank=True)
+    tournaments = models.ManyToManyField('Tournament', related_name='teams_registered', blank=True)
+
+    img = models.ImageField(upload_to='tournaments', blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+        super(Team, self).save(*args, **kwargs)
 
 
 class Tournament(models.Model):
@@ -45,16 +55,15 @@ class Tournament(models.Model):
             self.slug = slugify(self.name)
         if self.img:
             self.img.name = 'images/' + self.slug + '/' + 'main_image' + self.img.url.rsplit('.', 1)[1].lower()
-        super(Tournament, self).save()
+        super(Tournament, self).save(*args, **kwargs)
 
 
 class GameFormat(models.Model):
     name = models.CharField(max_length=64)
-    game = models.ForeignKey('Game', related_name='formats', on_delete=models.CASCADE)
     max_players = models.IntegerField()
 
     def __str__(self):
-        return self.name + ' ' + self.game.name
+        return self.name
 
 
 class Game(models.Model):
