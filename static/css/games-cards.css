@@ -3,7 +3,7 @@
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
-.game-card-0 {
+/* .game-card-0 {
 	background: url("../img/games_foto/Card_0.png");
 }
 .game-card-1 {
@@ -26,7 +26,7 @@
 }
 .game-card-7 {
 	background: url("../img/games_foto/Card_7.png");
-}
+} */
 .game-card {
 	color: white;
 	width: 190px;
