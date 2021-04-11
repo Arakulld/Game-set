@@ -1,147 +1,172 @@
 {% extends "base.html" %}
 {% load static %}
 {% block  head %}
-    <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
-    <link rel="stylesheet" href="{% static "css/pubg-main.css" %}">
-    <link rel="stylesheet" href="{% static "css/tabs.css" %}">
-    <link rel="stylesheet" href="{% static "css/slide-pages.css" %}">
-    <style>
-        #London {
-            display: block;
-        }
+<link rel="stylesheet" href="{% static "css/tournaments.css" %}">
+<link rel="stylesheet" href="{% static "css/pubg-main.css" %}">
+<link rel="stylesheet" href="{% static "css/tabs.css" %}">
+<link rel="stylesheet" href="{% static "css/slide-pages.css" %}">
+<style>
+	#London {
+		display: block;
+	}
 
-        body {
-            background: url("{% static "img/bg.jpg" %}") center top repeat;
-        }
-    </style>
+	body {
+		background: url("{% static "img/bg.jpg" %}") center top repeat;
+	}
+
+	.limit {
+		width: 375px;
+	}
+</style>
 {% endblock %}
 {% block title %}Create tournament new{% endblock %}
 {% block content %}
 
-    <main class="main">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="row main-header text-right">
-                        <div class="col">
-                            <span>O</span>rganize Tournament
-                        </div>
-                    </div>
-                    <div>
-                        <div class="tab row main-links justify-content-center align-items-center ">
-                            <button class="tablinks active" onclick="openCity(event, 'London')">Main</button>
-                            <button class="tablinks " onclick="openCity(event, 'Tokyo')">Info</button>
+<main class="main">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="row main-header text-right">
+					<div class="col">
+						<span>O</span>rganize Tournament
+					</div>
+				</div>
+				<div>
+					<div class="tab row main-links justify-content-center align-items-center ">
+						<button class="tablinks active" onclick="openCity(event, 'London')">Main</button>
+						<button class="tablinks " onclick="openCity(event, 'Tokyo')">Info</button>
 
-                        </div>
-                        <form action="." method="post" enctype="multipart/form-data">
-                            <div id="London" class="tabcontent">
-                                <div class="row main-inputs justify-content-center">
+					</div>
+					<form action="#" method="post" enctype="multipart/form-data">
+						<div id="London" class="tabcontent">
+							<div class="row main-inputs justify-content-center">
 
-                                    <div class="form-group">
-                                        <input name="name" type="text" class="main-input" placeholder="Tournament name">
-                                    </div>
-                                    <div class="form-group">
-                                        <select name="game" class="main-select" size="1">
-                                            <option class="main-option" disabled selected>Choose a game ...</option>
-                                            <option>PUBG Mobile</option>
-                                            <option>CS:GO</option>
-                                            <option>DOTA 2</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <select name="game_format" class="main-select" size="1">
-                                            <option class="main-option" disabled selected>Tournament format ...</option>
-                                            <option value="1">Solo (1x1)</option>
-                                            <option value="2">Duo (2x2)</option>
-                                            <option value="3">DSquad (4x4, 5x5)</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group d-flex">
-                                        <input name="max_participants" class="main-select main-static"
-                                               placeholder="Participants limit">
-                                        <button class="main-btn main-btn-active">
-                                            Limited
-                                        </button>
-                                        <button class="main-btn">
-                                            Unlimited
-                                        </button>
-                                    </div>
-                                    <div class="form-group d-flex justify-content-between">
-                                        <div>
-                                            <input name="start_date" type="text" class="main-input main-input-mini"
-                                                   placeholder="Start Date (DD/MM/YYYY)">
-                                            <small class="form-text text-muted">Date displayed in UTC
-                                                <span>+05:00</span></small>
-                                        </div>
-                                        <div>
-                                            <input name="start_time" type="text" class="main-input main-input-mini"
-                                                   placeholder="Start Time">
-                                            <small class="form-text text-muted">Time displayed in UTC
-                                                <span>+05:00</span></small>
-                                        </div>
-                                    </div>
-                                    <h1 class="main-inputs-header">Optional Fields</h1>
-                                    <div class="form-group">
-                                        <input name="description" type="text" class="main-input"
-                                               placeholder="Description">
-                                    </div>
-                                    <div class="main-inputs-file">
-                                        <input name="img" type="file" class="form-control-file">
-                                    </div>
-{#                                    <div class="d-flex justify-content-end">#}
-{#                                        <button type="" class="btn btn-primary main-inputs-btn">Next</button>#}
-{#                                    </div>#}
-                                </div>
+								<div class="form-group">
+									<input name="name" type="text" class="main-input" placeholder="Tournament name">
+								</div>
+								<div class="form-group">
+									<select name="game" class="main-select" size="1">
+										<option class="main-option" disabled selected>Choose a game ...</option>
+										<option>PUBG Mobile</option>
+										<option>CS:GO</option>
+										<option>DOTA 2</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<select name="game_format" class="main-select" size="1">
+										<option class="main-option" disabled selected>Tournament format ...</option>
+										<option value="1">Solo (1x1)</option>
+										<option value="2">Duo (2x2)</option>
+										<option value="3">DSquad (4x4, 5x5)</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<input name="name" type="text" class="main-input limit"
+										placeholder="Participants limit">
+									<button class="main-btn main-btn-active">
+										Limited
+									</button>
+									<button class="main-btn">
+										Unlimited
+									</button>
+								</div>
+								<!-- <div class="form-group d-flex justify-content-start">
+									<input name="max_participants" class="main-select main-static"
+										placeholder="Participants limit">
+									<button class="main-btn main-btn-active">
+										Limited
+									</button>
+									<button class="main-btn">
+										Unlimited
+									</button>
+								</div> -->
+								<div class="form-group d-flex justify-content-between">
+									<div>
+										<input name="start_date" type="text" class="main-input main-input-mini"
+											placeholder="Start Date (DD/MM/YYYY)">
+										<small class="form-text text-muted">Date displayed in UTC
+											<span>+05:00</span></small>
+									</div>
+									<div>
+										<input name="start_time" type="text" class="main-input main-input-mini"
+											placeholder="Start Time">
+										<small class="form-text text-muted">Time displayed in UTC
+											<span>+05:00</span></small>
+									</div>
+								</div>
+								<h1 class="main-inputs-header">Optional Fields</h1>
+								<div class="form-group">
+									<input name="description" type="text" class="main-input" placeholder="Description">
+								</div>
+								<div class="main-inputs-file">
+									<input name="img" type="file" class="form-control-file">
+								</div>
+								<div class="d-flex justify-content-end">
+									<button type="" class="btn btn-primary main-inputs-btn">Next</button>
+								</div>
+							</div>
 
-                            </div>
-                            <div id="Tokyo" class="tabcontent">
-                                <div class="row main-inputs justify-content-center">
-                                    <div class="form-group d-flex justify-content-between">
-                                        <select name="communication" class="main-select info-select" size="1">
-                                            <option class="main-option" disabled selected>Communication tool</option>
-                                            <option>Telegram</option>
-                                            <option>Discord</option>
-                                            <option>Team Speak</option>
-                                        </select>
-                                        <input name="contact_detail" type="text"
-                                               class="main-input main-input-mini info-input"
-                                               placeholder="Enter tour username or link">
-                                    </div>
-                                    <div class="form-group main-select d-flex align-items-center info-click">
-                                    </div>
-                                    <div class="form-group main-select d-flex align-items-center info-click">
-                                        <div class="info-text">
-                                            Rules
-                                        </div>
-                                    </div>
-                                    <div class="form-group main-select d-flex align-items-center info-click">
-                                        <div class="info-text">
-                                            Prizes
-                                        </div>
-                                    </div>
-                                    <div class="form-group main-select d-flex align-items-center info-click">
-                                        <div class="info-text">
-                                            Schedule
-                                        </div>
-                                    </div>
-                                    {% csrf_token %}
-                                    <div class="d-flex justify-content-center">
-                                        <button type="submit" class="btn btn-primary main-inputs-btn">Finish</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
+						</div>
+						<div id="Tokyo" class="tabcontent">
+							<div class="row main-inputs justify-content-center">
+								<div class="form-group d-flex justify-content-between">
+									<select name="communication" class="main-select info-select" size="1">
+										<option class="main-option" disabled selected>Communication tool</option>
+										<option>Telegram</option>
+										<option>Discord</option>
+										<option>Team Speak</option>
+									</select>
+									<input name="contact_detail" type="text"
+										class="main-input main-input-mini info-input"
+										placeholder="Enter tour username or link">
+								</div>
+								<div class="form-group main-select d-flex align-items-center info-click">
+								</div>
+								<div class="form-group main-select d-flex align-items-center info-click">
+									<div class="info-text">
+										Rules
+									</div>
+								</div>
+								<div class="form-group main-select d-flex align-items-center info-click">
+									<div class="info-text">
+										Prizes
+									</div>
+								</div>
+								<div class="form-group main-select d-flex align-items-center info-click">
+									<div class="info-text">
+										Schedule
+									</div>
+								</div>
+								{% csrf_token %}
+								<div class="d-flex justify-content-center">
+									<button type="submit" class="btn btn-primary main-inputs-btn">Finish</button>
+								</div>
+							</div>
+						</div>
+					</form>
 
-                    </div>
-                </div>
+				</div>
+			</div>
 
 
-            </div>
-        </div>
-        </div>
+		</div>
+	</div>
+	</div>
 
-        </div>
-    </main>
+	</div>
+</main>
+
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+<script>
+	$('.main-btn').click(function (e) {
+		e.preventDefault();
+		$('.main-btn-active').removeClass('main-btn-active');
+		$(this).addClass('main-btn-active');
+	});
+</script>
 
 
 {% endblock %}
