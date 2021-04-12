@@ -28,7 +28,7 @@ class Team(models.Model):
             try:
                 old = Team.objects.get(pk=self.pk).img
                 os.remove(old.path)
-            except (Tournament.DoesNotExist, WindowsError):
+            except (Team.DoesNotExist, WindowsError):
                 pass
             self.img.name = 'teams/' + self.slug + '.' + self.img.url.rsplit('.', 1)[1].lower()
         print(*args, **kwargs)
