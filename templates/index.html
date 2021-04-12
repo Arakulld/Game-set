@@ -26,9 +26,9 @@
         .orginize {
             margin-bottom: 50%;
             color: white;
-            background: transparent;
-            border: none;
-            font-size: 50px;
+            /* background: transparent;*/
+            border: none; 
+            font-size: 20px;
         }
     </style>
 {% endblock %}
@@ -39,7 +39,7 @@
         <button type="submit" class="main-inputs-btn ">Log Out</button>
     </div>
     <main class="main-tour">
-        <div class="btns-pos">
+        <div class="justify-content-end btns-pos">
             <button type="submit" class="main-inputs-btn btn-search "><img class="btn-user"
                                                                            src="{% static "img/search.png" %}" alt="">
             </button>
@@ -67,17 +67,13 @@
         </div>
 
         <div class="games-cards">
-            <div class="game-card game-card-0 game-add">
-                <div>
-                    <form action="{% url 'create-tournament' %}">
-                        <button class="orginize">+</button>
-                    </form>
+            
+             <form action="{% url 'create-tournament' %}" >
+                <button class="orginize game-card game-card-0 game-add">+  <br> 
+                    Organize tournament 
+                </button>
+            </form>
 
-                </div>
-                <div>
-                    Organize tournament
-                </div>
-            </div>
             {% for t in tournaments %}
                 <div class="game-card {{ t.slug }}">
                     <style>

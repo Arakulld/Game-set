@@ -169,7 +169,10 @@ a:hover {
 /* Games Menu */
 
 .btn-position{
+  display: flex;
+  flex-direction: row;
   position: absolute;
+  margin-left: 20px;
   right: 215px;
   top: 240px;
 }
@@ -209,7 +212,9 @@ a:hover {
 
 /* Games menu html  */
 .btns-pos{
-  text-align: right;
+  display: flex;
+  flex-direction: row;
+  
   margin-bottom: 60px;
 }
 .btn-user{

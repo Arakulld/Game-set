@@ -1,7 +1,7 @@
 .games-cards {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 }
 /* .game-card-0 {
 	background: url("../img/games_foto/Card_0.png");
