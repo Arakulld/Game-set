@@ -28,7 +28,7 @@ class Team(models.Model):
             try:
                 old = Team.objects.get(pk=self.pk).img
                 os.remove(old.path)
-            except Team.DoesNotExist:
+            except (Tournament.DoesNotExist, WindowsError):
                 pass
             self.img.name = 'teams/' + self.slug + '.' + self.img.url.rsplit('.', 1)[1].lower()
         print(*args, **kwargs)
@@ -83,7 +83,7 @@ class Tournament(models.Model):
             try:
                 old = Tournament.objects.get(pk=self.pk).img
                 os.remove(old.path)
-            except Tournament.DoesNotExist:
+            except (Tournament.DoesNotExist, WindowsError):
                 pass
             self.img.name = 'images/' + self.slug + '/' + 'main_image.' + self.img.url.rsplit('.', 1)[1].lower()
         super(Tournament, self).save(*args, **kwargs)

@@ -62,7 +62,10 @@ class TeamList(TemplateView):
 
     @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
-        teams = get_list_or_404(Team, owner=request.user)
+        try:
+            teams = Team.objects.filter(owner=request.user)
+        except Team.DoesNotExist:
+            teams = None
         context = self.get_context_data(**kwargs)
         context.update({'teams': teams})
         return self.render_to_response(context)
