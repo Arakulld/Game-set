@@ -79,7 +79,7 @@ class AccountForm(forms.Form):
     phone_number = forms.CharField(max_length=16, required=False)
 
     def __init__(self, instance=None, *args, **kwargs):
-        self.instance = instance if self.instance else None
+        self.instance = instance if instance else None
         super(AccountForm, self).__init__(*args, **kwargs)
 
     def clean_phone_number(self):
