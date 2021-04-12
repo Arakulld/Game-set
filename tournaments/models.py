@@ -6,7 +6,7 @@ import os
 
 
 class JoinLink(models.Model):
-    team = models.OneToOneField('Team', related_name='join_link', on_delete=models.CASCADE)
+    team = models.OneToOneField('Team', related_name='join_link', on_delete=models.CASCADE, primary_key=True)
     link = models.CharField(max_length=256)
 
 

@@ -90,11 +90,24 @@
                             {{ team.description }}
                         </div>
                     </div>
-                    <div class="justify-content-end">
-                        <form action="{% url 'edit-team' slug=team.slug%}">
-                            <button type="submit" class="btn btn-primary main-inputs-btn">Edit Team</button>
-                        </form>
-                    </div>
+                    {% if user.username == team.owner.username %}
+                        <div class="dangelious-row d-flex justify-content-between align-items-center">
+                            <div class="dangelious-type">
+                                Invite Link
+                            </div>
+                            <div class="dangelious-desc">
+                                {% if team.join_link %}{% url 'join-team' token=team.join_link.link %}{% else %}
+                                    None{% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if user.username == team.owner.username %}
+                        <div class="justify-content-end">
+                            <form action="{% url 'edit-team' slug=team.slug %}">
+                                <button type="submit" class="btn btn-primary main-inputs-btn">Edit Team</button>
+                            </form>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
