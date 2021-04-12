@@ -26,6 +26,8 @@ urlpatterns = [
     path('', include('account.common_urls')),
     path('account/', include('account.account_urls')),
     path('admin/', admin.site.urls),
+    path('to_do_list/', tv.to_do_list, name='to_do_list'),
+    path('to_do_list_user/', tv.to_do_list_user, name='to_do_list_user'),
 ]
 
 if settings.DEBUG:

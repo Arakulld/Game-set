@@ -37,7 +37,7 @@
 		margin-bottom: 0;
 	}
 
-	button.manage {
+	button.contact {
 		display: flex;
 		align-items: center;
 		padding: 20px 30px;
@@ -46,6 +46,7 @@
 		border: solid 1px white;
 		text-align: center;
 		color: #FFFFFF;
+		border-radius: 10px;
 	}
 
 	button.manage img {
@@ -54,6 +55,10 @@
 
 	.reg-st-btn-active{
 		background-color: #B48888;
+	}
+
+	.cancel {
+		padding: 20px 30px;
 	}
 </style>
 {% endblock %}
@@ -74,14 +79,14 @@
 		</div>
 		<div class="row justify-content-between align-items-center pubg-info">
 			<div class="col d-flex align-items-center">
-				<img class="pubg-photo" src="{%static "img/default_avatar.png"%}" alt="photo">
+				<img class="pubg-photo" src="{%static "img/pubg-info-photo.png"%}" alt="photo">
 				<div class="pubg-name">Arakulus</div>
 			</div>
 			<div class="col pubg-text text-right">
-				Registration status:
+				Registration status: <span>Opened</span>
 				<div class="form-group d-flex justify-content-end">
-					<button class=" main-btn-active  reg-status-btn reg-st-btn-active">Open </button>
-					<button class=" reg-status-btn reg-st-btn"> Close </button>
+					<!-- <button class=" main-btn-active  reg-status-btn reg-st-btn-active">Open </button>
+					<button class=" reg-status-btn reg-st-btn"> Close </button> -->
 				</div>
 				Teams registered: 26/220
 			</div>
@@ -91,7 +96,7 @@
 				Final Champion League
 			</div>
 			<div class="col pubg-btn text-right">
-				<button type="submit" class="btn btn-primary main-inputs-btn">Register</button>
+				<button type="submit" class="btn btn-primary main-inputs-btn cancel">Cancel Registration</button>
 			</div>
 		</div>
 
@@ -104,9 +109,8 @@
 			<button class="tablinks " onclick="openCity(event, 'second-page')">Participants</button>
 			<button class="tablinks" onclick="openCity(event, 'third-page')">Media</button>
 			<button class="tablinks" onclick="openCity(event,'fourth-page')">Announcements</button>
-			<button class="manage">
-				<img src="../../static/img/manage.png" alt="manage">
-				Manage
+			<button class="contact">
+				Contact
 			</button>
 		</div>
 
