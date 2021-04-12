@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404, get_list_or_404
 from django.views.generic import TemplateView
-from .forms import TournamentCreateForm, TeamCreateForm
+from .forms import TournamentCreateForm, TeamCreateForm, TeamEditForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from .models import Team, Tournament
@@ -62,7 +62,7 @@ class TeamList(TemplateView):
 
     @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
-        teams = Team.objects.filter(owner=request.user)
+        teams = get_list_or_404(Team, owner=request.user)
         context = self.get_context_data(**kwargs)
         context.update({'teams': teams})
         return self.render_to_response(context)
@@ -73,7 +73,7 @@ class TeamDetail(TemplateView):
 
     @method_decorator(login_required)
     def get(self, request, slug, *args, **kwargs):
-        team = Team.objects.get(slug=slug)
+        team = get_object_or_404(Team, slug=slug, owner=request.user)
         context = self.get_context_data(**kwargs)
         context.update({'team': team})
         return self.render_to_response(context)
@@ -83,13 +83,20 @@ class TeamDelete(TemplateView):
 
     @method_decorator(login_required)
     def get(self, request, slug, *args, **kwargs):
-        team = Team.objects.get(slug=slug)
+        team = get_object_or_404(Team, slug=slug)
         team.delete()
         return redirect('team-list')
 
 
 class EditTeam(TemplateView):
     template_name = 'tournaments/forms/edit_team.html'
+
+    def post(self, request, slug, *args, **kwargs):
+        instance = get_object_or_404(Team, slug=slug, owner=request.user)
+        form = TeamEditForm(data=request.POST, files=request.FILES, instance=instance)
+        if form.is_valid():
+            form.save()
+        return redirect('team-list')
 
 
 def test(request):

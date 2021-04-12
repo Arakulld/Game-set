@@ -91,7 +91,9 @@
                         </div>
                     </div>
                     <div class="justify-content-end">
-                        <button type="submit" class="btn btn-primary main-inputs-btn">Edit Team</button>
+                        <form action="{% url 'edit-team' slug=team.slug%}">
+                            <button type="submit" class="btn btn-primary main-inputs-btn">Edit Team</button>
+                        </form>
                     </div>
                 </div>
             </div>
