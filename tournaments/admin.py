@@ -4,7 +4,7 @@ from . import models
 
 @admin.register(models.Team)
 class TeamAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'name', 'slug', 'get_game', 'img')
+    list_display = ('pk', 'owner', 'name', 'slug', 'get_game', 'img')
 
     def get_game(self, obj: models.Team):
         return obj.game.name
@@ -22,5 +22,5 @@ class GameFormatAdmin(admin.ModelAdmin):
 
 @admin.register(models.Tournament)
 class TournamentAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'name', 'slug')
+    list_display = ('pk', 'name', 'slug', 'img')
     prepopulated_fields = {'slug': ('name',)}

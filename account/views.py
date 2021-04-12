@@ -148,10 +148,6 @@ class RegisterView(TemplateView):
         return redirect('register_confirm')
 
 
-class IndexView(TemplateView):
-    template_name = 'tournaments/user_tournaments_list.html'
-
-
 class RegisterActivateView(TemplateView):
     template_name = 'account/register_done.html'
 

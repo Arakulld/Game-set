@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{% endblock %}
+{% block  head %}
+    <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
+    <link rel="stylesheet" href="{% static "css/games-cards.css" %}">
+    <style>
+        .games-menu-cards {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .game-menu {
+            justify-content: space-between;
+        }
+
+        .game-add {
+            background: url("../static/img/game-add-bg.png");
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center
+        }
+
+        .orginize {
+            margin-bottom: 50%;
+            color: white;
+            background: transparent;
+            border: none;
+            font-size: 50px;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+
+
+    <div class="btn-position">
+        <button type="submit" class="main-inputs-btn ">Log Out</button>
+    </div>
+    <main class="main-tour">
+        <div class="btns-pos">
+            <button type="submit" class="main-inputs-btn btn-search "><img class="btn-user"
+                                                                           src="{% static "img/search.png" %}" alt="">
+            </button>
+            <form action="{% url 'team-list' %}">
+                <button type="submit" class="main-inputs-btn btn-search">View Teams</button>
+            </form>
+
+
+            <form action="{% url 'profile' %}">
+                <button type="submit" class="main-inputs-btn btn-search"><img class="btn-user"
+                                                                              src="{% static "img/user.png" %}"
+                                                                              alt=""></button>
+            </form>
+
+        </div>
+        <div class="game-menu">
+            <p>Tournament</p>
+            {#		<ul class="game-type">#}
+            {#			<li class="game-name">CS:GO</li>#}
+            {#			<li class="game-name">Dota2</li>#}
+            {#			<li class="game-name">PugbMobile</li>#}
+            {#			<li class="game-name">All</li>#}
+            {#		</ul>#}
+
+        </div>
+
+        <div class="games-cards">
+            <div class="game-card game-card-0 game-add">
+                <div>
+                    <form action="{% url 'create-tournament' %}">
+                        <button class="orginize">+</button>
+                    </form>
+
+                </div>
+                <div>
+                    Organize tournament
+                </div>
+            </div>
+            {% for t in tournaments %}
+                <div class="game-card {{ t.slug }}">
+                    <style>
+                        .{{ t.slug }} {
+                            background: url("{% if t.img %}{{ t.img.url }}{% else %}{% static 'img/games_foto/default.png' %}{% endif %}") center 0;
+                            background-size: cover;
+                        }
+                    </style>
+                    <div class="game-card-title">
+                        {{ t.game.name }}
+                    </div>
+                    <div class="game-card-desc">
+                        <div class="game-card-type">
+                            {{ t.name }} {{ t.game_format.name }}
+                        </div>
+                        <div class="game-card-date">
+                            {{ t.start_time }} {{ t.start_date|date:"M d, Y" }}
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <h1>No tournaments created.</h1>
+            {% endfor %}
+        </div>
+
+    </main>
+
+
+{% endblock %}

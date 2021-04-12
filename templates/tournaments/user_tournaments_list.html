@@ -2,191 +2,59 @@
 {% load static %}
 {% block title %}My tournaments{% endblock %}
 {% block content %}
-<link rel="stylesheet" href="{% static "css/games-cards.css" %}">
-<style>
-	a {
-		color: white;
-	}
+    <link rel="stylesheet" href="{% static "css/games-cards.css" %}">
+    <style>
+        a {
+            color: white;
+        }
 
-	a:hover {
-		color: red
-	}
+        a:hover {
+            color: red
+        }
+    </style>
+    <main class="search-main">
+        <div class=" text-posit">
+            <span>M</span>y Tournaments
+        </div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="form-group d-flex justify-content-between">
+                    <input type="text" class="main-input main-search info-input" placeholder="Search ... ">
+                    <select class="main-select game-select" size="1">
+                        <option class="main-option" disabled selected>Game</option>
+                        <option>PUBG Mobile</option>
+                        <option>CS:GO</option>
+                        <option>DOTA2</option>
+                    </select>
+                </div>
+                <div class="col-2">
+                    <button type="submit" class="btn btn-primary search-game ">Search</button>
+                </div>
+            </div>
+        </div>
 
-	.game-card-0 {
-		background: url("../../static/img/games_foto/Card_0.png");
-	}
+        <div class="games-cards">
+            <div class="game-card game-card-7">
+                <style>
+                    .game-card-7 {
+                        background: url("../../static/img/games_foto/Card_0.png");
+                    }
+                </style>
+                <a href="{% static "img/games_foto/Card_5.png" %}">
+                    <div class="game-card-title">
+                        PUBG
+                    </div>
+                    <div class="game-card-desc">
+                        <div class="game-card-type">
+                            Tonight battle 5x5 with crisps
+                        </div>
+                        <div class="game-card-date">
+                            12 December
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
 
-	.game-card-1 {
-		background: url("../../static/img/games_foto/Card_1.png");
-	}
-
-	.game-card-2 {
-		background: url("../../static/img/games_foto/Card_2.png");
-	}
-
-	.game-card-3 {
-		background: url("../../static/img/games_foto/Card_3.png");
-	}
-
-	.game-card-4 {
-		background: url("../../static/img/games_foto/Card_4.png");
-	}
-
-	.game-card-5 {
-		background: url("../../static/img/games_foto/Card_5.png");
-	}
-
-	.game-card-6 {
-		background: url("../../static/img/games_foto/Card_6.png");
-	}
-
-	.game-card-7 {
-		background: url("../../static/img/games_foto/Card_7.png");
-	}
-</style>
-<main class="search-main">
-	<div class=" text-posit">
-		<span>M</span>y Tournaments
-	</div>
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="form-group d-flex justify-content-between">
-				<input type="text" class="main-input main-search info-input" placeholder="Search ... ">
-				<select class="main-select game-select" size="1">
-					<option class="main-option" disabled selected>Game</option>
-					<option>PUBG Mobile</option>
-					<option>CS:GO</option>
-					<option>DOTA2</option>
-				</select>
-			</div>
-			<div class="col-2">
-				<button type="submit" class="btn btn-primary search-game ">Search</button>
-			</div>
-		</div>
-	</div>
-
-	<div class="games-cards">
-		<div class="game-card game-card-0">
-			<a href="{% static "img/games_foto/Card_5.png" %}">
-				<div class="game-card-title">
-					PUBG
-				</div>
-				<div class="game-card-desc">
-					<div class="game-card-type">
-						Tonight battle 5x5 with crisps
-					</div>
-					<div class="game-card-date">
-						12 December
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="game-card game-card-1">
-			<a href="#">
-				<div class="game-card-title">
-					CS:GO
-				</div>
-				<div class="game-card-desc">
-					<div class="game-card-type">
-						Tonight battle 5x5 with crisps
-					</div>
-					<div class="game-card-date">
-						12 December
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="game-card game-card-2">
-			<a href="#">
-				<div class="game-card-title">
-					Brawl Stars
-				</div>
-				<div class="game-card-desc">
-					<div class="game-card-type">
-						Tonight battle 5x5 with crisps
-					</div>
-					<div class="game-card-date">
-						12 December
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="game-card game-card-3">
-			<a href="#">
-				<div class="game-card-title">
-					CoD
-				</div>
-				<div class="game-card-desc">
-					<div class="game-card-type">
-						Tonight battle 5x5 with crisps
-					</div>
-					<div class="game-card-date">
-						12 December
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="game-card game-card-4">
-			<a href="#">
-				<div class="game-card-title">
-					Clash of clans
-				</div>
-				<div class="game-card-desc">
-					<div class="game-card-type">
-						Tonight battle 5x5 with crisps
-					</div>
-					<div class="game-card-date">
-						12 December
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="game-card game-card-5">
-			<a href="#">
-				<div class="game-card-title">
-					PUBG Mobile
-				</div>
-				<div class="game-card-desc">
-					<div class="game-card-type">
-						Tonight battle 5x5 with crisps
-					</div>
-					<div class="game-card-date">
-						12 December
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="game-card game-card-6">
-			<a href="#">
-				<div class="game-card-title">
-					Dota 2
-				</div>
-				<div class="game-card-desc">
-					<div class="game-card-type">
-						Tonight battle 5x5 with crisps
-					</div>
-					<div class="game-card-date">
-						12 December
-					</div>
-				</div>
-			</a>
-		</div>
-		<div class="game-card game-card-7">
-			<a href="#">
-				<div class="game-card-title">
-					CS:GO
-				</div>
-				<div class="game-card-desc">
-					<div class="game-card-type">
-						Tonight battle 5x5 with crisps
-					</div>
-					<div class="game-card-date">
-						12 December
-					</div>
-				</div>
-			</a>
-		</div>
-	</div>
-
-</main>
+    </main>
 {% endblock %}

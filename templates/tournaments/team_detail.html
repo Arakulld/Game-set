@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+{% block  head %}
+    <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
+    <link rel="stylesheet" href="{% static "css/pubg-main.css" %}">
+    <link rel="stylesheet" href="{% static "css/tabs.css" %}">
+    <link rel="stylesheet" href="{% static "css/slide-pages.css" %}">
+    <style>
+        body {
+            background: url("../../static/img/bg.jpg") center top no-repeat;
+        }
+
+        .pubg-photo {
+            border: none;
+        }
+
+        .main-header {
+            margin-right: 0;
+        }
+
+        .dangelious {
+            color: white;
+        }
+
+        .dangelious-row {
+            margin: 5%;
+            margin-left: 0;
+        }
+
+        .dangelious-desc {
+            text-align: right;
+        }
+
+        .dangelious-type {
+            margin-right: 10%;
+        }
+
+        .team-members {
+            margin-bottom: 30px;
+        }
+
+        .teams-icon {
+            background: black;
+        }
+    </style>
+{% endblock %}
+{% block title %}Create tournament new{% endblock %}
+{% block content %}
+
+    <div class="justify-content-end btn-position ">
+        <form action="{% url 'index' %}">
+            <button type="submit" class="btn btn-primary main-inputs-btn ">Main</button>
+        </form>
+    </div>
+    <main class="main-tour">
+        <div class="row main-header text-right">
+            <div class="col">
+                <span>D</span>andelions
+            </div>
+        </div>
+        <div class="dangelious">
+            <div class="row">
+                <div class="col-4">
+                    <img class="pubg-photo" src="
+                            {% if team.img %}{{ team.img.url }}{% else %}{% static "img/default_team.png" %}{% endif %}"
+                         alt="photo">
+                </div>
+                <div class="col-6">
+                    <div class="dangelious-row d-flex justify-content-between align-items-center">
+                        <div class="dangelious-type">
+                            Game
+                        </div>
+                        <div class="dangelious-desc">
+                            {{ team.game.name }}
+                        </div>
+                    </div>
+                    <div class="dangelious-row d-flex justify-content-between align-items-center">
+                        <div class="dangelious-type">
+                            Captain
+                        </div>
+                        <div class="dangelious-desc">
+                            {{ team.owner.username }}
+                        </div>
+                    </div>
+                    <div class="dangelious-row d-flex justify-content-between align-items-center">
+                        <div class="dangelious-type">
+                            Description
+                        </div>
+                        <div class="dangelious-desc">
+                            {{ team.description }}
+                        </div>
+                    </div>
+                    <div class="justify-content-end">
+                        <button type="submit" class="btn btn-primary main-inputs-btn">Edit Team</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row main-header justify-content-center team-members">
+            <span>T</span>eam Members
+        </div>
+        <div class="team-icon-pos">
+            <div class="teams-icon post"></div>
+            <div class="teams-icon post"></div>
+            <div class="teams-icon post"></div>
+            <div class="teams-icon-1 post icon-pos">
+                <input type="file" class="form-control-file">
+                <img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""><br><br> Add member
+            </div>
+            <div class="teams-icon-1 post icon-pos">
+                <input type="file" class="form-control-file">
+                <img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""><br><br> Add member
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+{% endblock %}

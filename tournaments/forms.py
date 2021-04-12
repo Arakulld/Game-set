@@ -1,8 +1,8 @@
 from django import forms
-from django.forms import ValidationError
+from django.shortcuts import get_object_or_404
 from .models import Tournament, Team
-from .models import Game
-from .models import GameFormat
+from django.forms import ValidationError
+from slugify import slugify
 
 
 class TournamentCreateForm(forms.ModelForm):
@@ -15,22 +15,34 @@ class TournamentCreateForm(forms.ModelForm):
                   'game_format',
                   'max_participants',
                   'communication',
-                  'contact_detail',
+                  'contact',
                   'start_date',
-                  'start_time')
+                  'start_time',
+                  'contact_detail',
+                  'rules',
+                  'schedule',
+                  'prizes')
 
 
 class TeamCreateForm(forms.ModelForm):
-
-    def __init__(self, user=None, *args, **kwargs):
-        super(TeamCreateForm, self).__init__(*args, **kwargs)
-        if user:
-            self.owner = user
-
     class Meta:
         model = Team
-        fields = ('owner',
-                  'name',
+        fields = ('name',
                   'game',
                   'description',
                   'img')
+
+    def clean_name(self):
+        name = self.cleaned_data.get('name')
+        try:
+            obj = Team.objects.get(slug=slugify(name))
+            raise ValidationError('Tournament with similar name is already exists.')
+        except Team.DoesNotExist:
+            pass
+        return name
+
+    def clean_game(self):
+        game = self.cleaned_data.get('game')
+        if not game:
+            raise ValidationError('No game here')
+        return game
