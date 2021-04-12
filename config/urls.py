@@ -20,19 +20,12 @@ from django.conf import settings
 from tournaments import views as tv
 
 urlpatterns = [
-    path('test/', tv.test_view, name='test'),
+    path('test/', tv.test, name='test'),
     path('', include('tournaments.tournament_urls')),
     path('', include('tournaments.common_urls')),
     path('', include('account.common_urls')),
     path('account/', include('account.account_urls')),
     path('admin/', admin.site.urls),
-
-    # New pages
-    path('empty_list/', tv.empty_list, name='empty_list'),
-    path('games_menu/', tv.games_menu, name='games_menu'),
-    path('pugb_page/', tv.pugb_page, name='pugb_page'),
-    path('to_do_list/', tv.to_do_list, name='to_do_list'),
-
 ]
 
 if settings.DEBUG:

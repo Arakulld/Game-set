@@ -2,6 +2,7 @@ from django.db import models
 from django.conf import settings
 from slugify import slugify
 from django.urls import reverse
+import os
 
 
 class JoinLink(models.Model):
@@ -23,6 +24,13 @@ class Team(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
+        if self.img:
+            try:
+                old = Team.objects.get(pk=self.pk).img
+                os.remove(old.path)
+            except Team.DoesNotExist:
+                pass
+            self.img.name = 'teams/' + self.slug + '.' + self.img.url.rsplit('.', 1)[1].lower()
         print(*args, **kwargs)
         super(Team, self).save(*args, **kwargs)
 
@@ -72,6 +80,11 @@ class Tournament(models.Model):
         if not self.slug:
             self.slug = slugify(self.name)
         if self.img:
+            try:
+                old = Tournament.objects.get(pk=self.pk).img
+                os.remove(old.path)
+            except Tournament.DoesNotExist:
+                pass
             self.img.name = 'images/' + self.slug + '/' + 'main_image.' + self.img.url.rsplit('.', 1)[1].lower()
         super(Tournament, self).save(*args, **kwargs)
 
