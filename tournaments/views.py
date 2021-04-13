@@ -57,7 +57,7 @@ class CreateTeam(TemplateView):
         if form.is_valid():
             form.save()
             JoinLink.objects.create(team=team,
-                                    link=base64_encode_time_now(string=team.name))
+                                    link=base64_encode_time_now(string=team.slug))
             return redirect('team-list')
         throw_form_errors_as_message(request, form)
         return self.render_to_response(context)

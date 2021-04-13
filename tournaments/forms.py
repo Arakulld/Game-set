@@ -23,6 +23,15 @@ class TournamentCreateForm(forms.ModelForm):
                   'schedule',
                   'prizes')
 
+    def clean_name(self):
+        name = self.cleaned_data.get('name')
+        try:
+            Team.objects.get(slug=slugify(name))
+            raise ValidationError('Tournament with similar name is already exists.')
+        except Team.DoesNotExist:
+            pass
+        return name
+
 
 class TeamCreateForm(forms.ModelForm):
     class Meta:
