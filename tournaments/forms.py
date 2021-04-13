@@ -28,7 +28,7 @@ class TournamentCreateForm(forms.ModelForm):
         try:
             Tournament.objects.get(slug=slugify(name))
             raise ValidationError('Tournament with similar name is already exists.')
-        except Team.DoesNotExist:
+        except Tournament.DoesNotExist:
             pass
         return name
 
