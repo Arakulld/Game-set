@@ -25,11 +25,13 @@
 
         .orginize {
             margin-bottom: 50%;
+            margin-right: 30px;
             color: white;
             /* background: transparent;*/
             border: none; 
             font-size: 20px;
         }
+       
     </style>
 {% endblock %}
 {% block content %}
@@ -40,8 +42,8 @@
     </div>
     <main class="main-tour">
         <div class="justify-content-end btns-pos">
-            <button type="submit" class="main-inputs-btn btn-search "><img class="btn-user"
-                                                                           src="{% static "img/search.png" %}" alt="">
+            <button type="submit" class="main-inputs-btn btn-search ">
+                <img class="btn-user" src="{% static "img/search.png" %}" alt="">
             </button>
             <form action="{% url 'team-list' %}">
                 <button type="submit" class="main-inputs-btn btn-search">View Teams</button>
@@ -49,9 +51,9 @@
 
 
             <form action="{% url 'profile' %}">
-                <button type="submit" class="main-inputs-btn btn-search"><img class="btn-user"
-                                                                              src="{% static "img/user.png" %}"
-                                                                              alt=""></button>
+                <button type="submit" class="main-inputs-btn btn-search">
+                    <img class="btn-user" src="{% static "img/user.png" %}"alt="">
+                </button>
             </form>
 
         </div>
@@ -69,8 +71,10 @@
         <div class="games-cards">
             
              <form action="{% url 'create-tournament' %}" >
-                <button class="orginize game-card game-card-0 game-add">+  <br> 
-                    Organize tournament 
+                <button class="orginize game-card game-card-0 game-add">
+                    <div class="post icon-pos">
+                        <img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""><br><br> Organize tournament
+                    </div>
                 </button>
             </form>
 
