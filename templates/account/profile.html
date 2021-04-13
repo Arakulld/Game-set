@@ -15,15 +15,18 @@
             margin-right: 0;
             margin-bottom: 0;
         }
+        .space{
+            margin-left:20px;
+        }
     </style>
 {% endblock %}
 {% block content %}
     <div class="justify-content-end btn-position">
         <form action="{% url 'index' %}">
-            <button type="submit" class="btn btn-primary main-inputs-btn ">Main</button>
+            <button type="submit" class="btn btn-primary main-inputs-btn  ">Main</button>
         </form>
         <form action="{% url 'logout' %}">
-            <button type="submit" class="btn btn-primary main-inputs-btn ">Log out</button>
+            <button type="submit" class="btn btn-primary main-inputs-btn space ">Log out</button>
         </form>
 
     </div>
@@ -36,10 +39,18 @@
         <div class=" menu-description">
             <div class="row justify-content-between align-items-center pubg-info">
                 <div class="col d-flex align-items-center">
-                    <div class="teams-icon-1 post icon-pos">
+                    <form action="{% url 'create-tournament' %}" >
+                        <button class="orginize game-card game-card-0 game-add teams-icon-1 post icon-pos">
+                            <div class=" post icon-pos">
+                                <img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""><br><br> Upload avatar
+                            </div>
+                        </button>
+                    </form>
+                    
+                    <!-- <div class="teams-icon-1 post icon-pos">
                         <input type="file" class="form-control-file">
                         <img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""><br><br> Upload avatar
-                    </div>
+                    </div> -->
                     <!-- <img class="pubg-photo" src="img/PhotoFrame.png" alt="photo"> -->
                 </div>
             </div>
