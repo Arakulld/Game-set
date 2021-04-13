@@ -26,7 +26,7 @@ class TournamentCreateForm(forms.ModelForm):
     def clean_name(self):
         name = self.cleaned_data.get('name')
         try:
-            Team.objects.get(slug=slugify(name))
+            Tournament.objects.get(slug=slugify(name))
             raise ValidationError('Tournament with similar name is already exists.')
         except Team.DoesNotExist:
             pass
@@ -45,7 +45,7 @@ class TeamCreateForm(forms.ModelForm):
         name = self.cleaned_data.get('name')
         try:
             Team.objects.get(slug=slugify(name))
-            raise ValidationError('Tournament with similar name is already exists.')
+            raise ValidationError('Team with similar name is already exists.')
         except Team.DoesNotExist:
             pass
         return name
