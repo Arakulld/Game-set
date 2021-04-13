@@ -140,7 +140,12 @@ class RegisterView(TemplateView):
             text_message = strip_tags(html_message)
             msg = EmailMultiAlternatives(subject, text_message, settings.EMAIL_HOST_USER, [new_user.email])
             msg.attach_alternative(html_message, 'text/html')
-            msg.send()
+            try:
+                msg.send()
+            except WindowsError:
+                new_user.delete()
+                activate_token.delete()
+                raise ConnectionError
         elif user_form.errors:
             from common.services import throw_form_errors_as_message
             throw_form_errors_as_message(request, user_form)

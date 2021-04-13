@@ -134,8 +134,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 ACTIVATE_EMAIL = 'templates/email/activate_account_pattern.html'
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'platform6697@gmail.com'
-EMAIL_HOST_PASSWORD = 'Gamingplatform'
+EMAIL_HOST_USER = 'coursework6697@gmail.com'
+EMAIL_HOST_PASSWORD = '@#leonidhello'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
