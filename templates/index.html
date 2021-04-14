@@ -15,7 +15,7 @@
         }
 
         .game-add {
-            background: url("../static/img/game-add-bg.png");
+            background-image: radial-gradient(#c60000, #000000);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,8 +24,8 @@
         }
 
         .orginize {
-            margin-bottom: 50%;
-            margin-right: 30px;
+            margin-bottom: 10%;
+            margin-right:40px;
             color: white;
             /* background: transparent;*/
             border: none; 
@@ -79,7 +79,7 @@
             </form>
 
             {% for t in tournaments %}
-                <div class="game-card {{ t.slug }}">
+                <div class="game-card {{ t.slug }} mr-4">
                     <style>
                         .{{ t.slug }} {
                             background: url("{% if t.img %}{{ t.img.url }}{% else %}{% static 'img/games_foto/default.png' %}{% endif %}") center 0;
@@ -99,7 +99,7 @@
                     </div>
                 </div>
             {% empty %}
-                <h1>No tournaments created.</h1>
+                <h>No tournaments created.</h>
             {% endfor %}
         </div>
 
