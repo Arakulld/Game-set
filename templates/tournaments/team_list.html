@@ -43,6 +43,12 @@
 {% endblock %}
 {% block title %}Create tournament new{% endblock %}
 {% block content %}
+
+    <div class="justify-content-end btn-position ">
+        <form action="{% url 'index' %}">
+            <button type="submit" class="btn btn-primary main-inputs-btn ">Main</button>
+        </form>
+    </div>
     <main class="main-tour">
         <div class="row main-header text-right">
             <div class="col">

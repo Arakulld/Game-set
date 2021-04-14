@@ -58,7 +58,11 @@ body {
 
 .pubg-photo {
   border: 1px solid red;
-  margin-right: 30px;
+  margin-right: 65px;
+  margin-left: 20px;
+  background-image:cover;
+  width: 190px;
+	height: 270px;
 }
 
 .pubg-name {
