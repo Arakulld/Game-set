@@ -84,10 +84,11 @@
                         </form>
 
                         <br>
-
-                        <form action="{{ team.get_delete_url }}">
-                            <button type="submit" class=" main-inputs-btn btn-primary">Delete</button>
-                        </form>
+                        {% if team.owner == user %}
+                            <form action="{{ team.get_delete_url }}">
+                                <button type="submit" class=" main-inputs-btn btn-primary">Delete</button>
+                            </form>
+                        {% endif %}
 
                     </div>
                 </div>

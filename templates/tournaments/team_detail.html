@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load tags %}
 {% block  head %}
     <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
     <link rel="stylesheet" href="{% static "css/pubg-main.css" %}">
@@ -52,7 +53,7 @@
     <main class="main-tour">
         <div class="row main-header text-right">
             <div class="col">
-                <span>D</span>andelions
+                <span>{{ team.name | first }}</span>{{ team.name |  without_first}}
             </div>
         </div>
         <div class="dangelious">
