@@ -75,8 +75,20 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
+
+        ##### COMMENT LINES BELOW TO ENABLE POSTGRES #####
+
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+
+        ##### UNCOMMENT LINES BELOW TO ENABLE POSTGRES #####
+
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'course_work',
+        # 'USER': 'cw_user',
+        # 'PASSWORD': 'cw_password',
+        # 'HOST': 'localhost',
+        # 'PORT': '5432'
     }
 }
 
