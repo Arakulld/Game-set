@@ -1,5 +1,7 @@
 body {
   font-family: 'Roboto', sans-serif;
+  background: url(../img/bg.jpg) center top no-repeat;
+  background-size: cover;
 }
 
 * {
@@ -26,10 +28,6 @@ input {
   outline: 0 !important;
 }
 
-body {
-  background: url(../img/bg.jpg) center top no-repeat;
-  background-size: cover;
-}
 
 .main {
   margin: 300px 215px;

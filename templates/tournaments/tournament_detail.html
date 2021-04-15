@@ -68,6 +68,7 @@
             color: #FFFFFF;
             border-radius: 10px;
         }
+        
 
     </style>
 {% endblock %}
@@ -93,17 +94,6 @@
             <div class="row justify-content-between align-items-center pubg-info">
                 <div class="col d-flex align-items-center">
                     <img class="pubg-photo" src="
-
-
-
-
-
-
-
-
-
-
-
                             {% if tournament.owner.account.photo %}{{ tournament.owner.account.photo.url }}{% else %}{% static "img/default_avatar.png" %}{% endif %}"
                          alt="photo">
                     <div class="pubg-name">{{ tournament.owner.username | capfirst }}</div>
@@ -246,7 +236,7 @@
 
 
                     <div class="games-cards">
-                        <div class="game-card game-card-0">
+                        <!-- <div class="game-card game-card-0">
                             <div class="game-card-title">
                                 PUBG
                             </div>
@@ -271,8 +261,8 @@
                                     12 December
                                 </div>
                             </div>
-                        </div>
-                        <div class="game-card game-card-2">
+                        </div> -->
+                        <!-- <div class="game-card game-card-2">
                             <div class="game-card-title">
                                 Brawl Stars
                             </div>
@@ -349,7 +339,7 @@
                                     12 December
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
 
                 </div>
