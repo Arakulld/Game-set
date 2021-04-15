@@ -66,7 +66,7 @@ class CreateTeam(TemplateView):
 
 
 class TournamentDetail(TemplateView):
-    template_name = 'new_pages/../templates/tournaments/tournament_detail.html'
+    template_name = 'tournaments/tournament_detail.html'
 
     @method_decorator(login_required)
     def get(self, request, slug, *args, **kwargs):
