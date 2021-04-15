@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.urls import reverse
+import os
 
 
 class TournamentAccount(models.Model):
@@ -9,7 +10,13 @@ class TournamentAccount(models.Model):
     phone_number = models.CharField(max_length=16, blank=True, null=True, default=None)
 
     def save(self, *args, **kwargs):
+
         if self.photo:
+            try:
+                old = TournamentAccount.objects.get(pk=self.pk).img
+                os.remove(old.path)
+            except (TournamentAccount.DoesNotExist, WindowsError):
+                pass
             self.photo.name = self.user.username + '/' + 'avatar.' + self.photo.url.rsplit('.', 1)[1].lower()
         super(TournamentAccount, self).save()
 
