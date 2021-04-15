@@ -8,6 +8,7 @@ from .models import Team, Tournament, JoinLink
 from common.services.services import base64_encode_time_now
 from django.db.models import Q
 from django.contrib import messages
+from common.services.services import filter_by_game_and_name
 
 
 class IndexView(TemplateView):
@@ -63,6 +64,58 @@ class CreateTeam(TemplateView):
         return self.render_to_response(context)
 
 
+class TournamentDetail(TemplateView):
+    template_name = 'new_pages/../templates/tournaments/tournament_detail.html'
+
+    @method_decorator(login_required)
+    def get(self, request, slug, *args, **kwargs):
+        tournament = get_object_or_404(Tournament, slug=slug)
+        context = self.get_context_data(**kwargs)
+        context.update({'tournament': tournament})
+        return self.render_to_response(context)
+
+
+class TournamentRegister(TemplateView):
+
+    @method_decorator(login_required)
+    def get(self, request, slug, *args, **kwargs):
+        tournament = get_object_or_404(Tournament, slug=slug)
+        if request.user.account in tournament.participants.all():
+            messages.error(request, 'Already registered')
+            return redirect('tournament-detail', slug=slug)
+        if len(tournament.participants.all()) >= tournament.max_participants:
+            messages.error(request, 'Max limit of participants')
+            return redirect('tournament-detail', slug=slug)
+        tournament.participants.add(request.user.account)
+        return redirect('user-tournaments')
+
+
+class TournamentUnregister(TemplateView):
+
+    @method_decorator(login_required)
+    def get(self, request, slug, *args, **kwargs):
+        tournament = get_object_or_404(Tournament, slug=slug)
+        if request.user.account not in tournament.participants.all():
+            messages.error(request, 'Not registered int this tournament')
+            return redirect('tournament-detail', slug=slug)
+        tournament.participants.remove(request.user.account)
+        return redirect('tournament-detail', slug=slug)
+
+
+class UserTournaments(TemplateView):
+    template_name = 'tournaments/user_tournaments_list.html'
+
+    @method_decorator(login_required)
+    def get(self, request, *args, **kwargs):
+        tournaments = Tournament.objects.filter(participants__in=[request.user.account])
+
+        tournaments = filter_by_game_and_name(request.GET, tournaments)
+
+        context = self.get_context_data(**kwargs)
+        context.update({'tournaments': tournaments})
+        return self.render_to_response(context)
+
+
 class TeamList(TemplateView):
     template_name = 'tournaments/team_list.html'
 
@@ -103,10 +156,12 @@ class TeamDelete(TemplateView):
 class EditTeam(TemplateView):
     template_name = 'tournaments/forms/edit_team.html'
 
+    @method_decorator(login_required)
     def get(self, request, slug, *args, **kwargs):
         get_object_or_404(Team, slug=slug, owner=request.user)
         return super(EditTeam, self).get(request, *args, **kwargs)
 
+    @method_decorator(login_required)
     def post(self, request, slug, *args, **kwargs):
         instance = get_object_or_404(Team, slug=slug, owner=request.user)
         form = TeamEditForm(data=request.POST, files=request.FILES, instance=instance)
@@ -126,8 +181,22 @@ class JoinTeam(TemplateView):
         return redirect('team-list')
 
 
+class SearchTournaments(TemplateView):
+    template_name = 'tournaments/search_tournaments_list.html'
+
+    @method_decorator(login_required)
+    def get(self, request, *args, **kwargs):
+        tournaments = Tournament.objects.all()
+        tournaments = filter_by_game_and_name(request.GET, tournaments)
+        if 'date' in request.GET and request.GET['date']:
+            tournaments = tournaments.filter(start_date=request.GET['date'])
+        context = self.get_context_data(**kwargs)
+        context.update({'tournaments': tournaments})
+        return self.render_to_response(context)
+
+
 def test(request):
-    return render(request, 'new_pages/to_do_list.html')
+    return render(request, 'account/password_reset_confirm.html')
 
 
 def to_do_list(request):

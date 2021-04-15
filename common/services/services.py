@@ -1,7 +1,20 @@
 import base64
 from datetime import datetime
 from django.contrib import messages
+from django.db.models import QuerySet
 from django.utils.translation import ugettext
+
+
+def filter_by_game_and_name(get: dict, tournaments: QuerySet):
+    if 'name' in get:
+        name = get['name']
+        if name:
+            tournaments = tournaments.filter(name=get['name'])
+    if 'game' in get:
+        game_name = get['game']
+        if game_name:
+            tournaments = tournaments.filter(game__name=game_name)
+    return tournaments
 
 
 def base64_encode_time_now(string: str = None):

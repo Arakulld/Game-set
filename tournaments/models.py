@@ -48,6 +48,7 @@ class Tournament(models.Model):
         OPENED = 'Open'
         CLOSED = 'Close'
 
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='teams_owned')
     name = models.CharField(max_length=64)
     slug = models.SlugField(unique=True)
     description = models.TextField()
@@ -61,13 +62,13 @@ class Tournament(models.Model):
     likes = models.ManyToManyField('account.TournamentAccount', related_name='fav_t', blank=True)
 
     communication = models.CharField(max_length=64)
-    contact = models.TextField(blank=True)
+    contact = models.TextField()
 
-    contact_detail = models.TextField(blank=True)
+    contact_detail = models.TextField()
 
-    rules = models.TextField(blank=True)
-    schedule = models.TextField(blank=True)
-    prizes = models.TextField(blank=True)
+    rules = models.TextField()
+    schedule = models.TextField()
+    prizes = models.TextField()
 
     start_date = models.DateField()
     start_time = models.TimeField()
@@ -90,8 +91,7 @@ class Tournament(models.Model):
 
 
 class GameFormat(models.Model):
-    name = models.CharField(max_length=64)
-    max_players = models.IntegerField()
+    name = models.CharField(max_length=64, primary_key=True)
 
     def __str__(self):
         return self.name

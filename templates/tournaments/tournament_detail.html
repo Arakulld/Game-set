@@ -1,0 +1,391 @@
+{% extends "base.html" %}
+{% load static %}
+{% load tags %}
+{% block  head %}
+
+    <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
+    <link rel="stylesheet" href="{% static "css/pubg-main.css" %}">
+    <link rel="stylesheet" href="{% static "css/tabs.css" %}">
+    <link rel="stylesheet" href="{% static "css/slide-pages.css" %}">
+    <link rel="stylesheet" href="{% static "css/games-cards.css" %}">
+    <style>
+        .head-of-comm {
+            width: 100%;
+        }
+
+        .input-comm {
+            width: 85%;
+        }
+
+        #first-page {
+            display: block;
+        }
+
+        .cards {
+            padding: 10%;
+            flex-direction: column;
+        }
+
+        .group-name {
+            margin-bottom: 75%;
+        }
+
+        ul.todo {
+            margin: 0;
+        }
+
+        .head-of-comm {
+            margin-bottom: 0;
+        }
+
+        button.manage {
+            display: flex;
+            align-items: center;
+            padding: 20px 30px;
+            font-size: 12px;
+            line-height: 14px;
+            border: solid 1px white;
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        button.manage img {
+            margin-right: 10px;
+        }
+
+        .reg-st-btn-active {
+            background-color: #B48888;
+        }
+
+        button.contact {
+            display: flex;
+            align-items: center;
+            padding: 20px 30px;
+            font-size: 12px;
+            line-height: 14px;
+            border: solid 1px white;
+            text-align: center;
+            color: #FFFFFF;
+            border-radius: 10px;
+        }
+
+    </style>
+{% endblock %}
+{% block title %}Create tournament new{% endblock %}
+{% block content %}
+    <header class="pubg-btns">
+        <div class="container">
+            <div class="row justify-content-end">
+                <form action="{% url 'index' %}">
+                    <button type="submit" class="btn btn-primary main-inputs-btn  ">Main</button>
+                </form>
+                <form action="{% url 'logout' %}">
+                    <button type="submit" class="btn btn-primary main-inputs-btn space ">Log out</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <main class="pubg-main">
+        <div class="container">
+            <div class="row pubg-header justify-content-end">
+                <span>{{ tournament.game.name | first }}</span>{{ tournament.game.name | without_first }}
+            </div>
+            <div class="row justify-content-between align-items-center pubg-info">
+                <div class="col d-flex align-items-center">
+                    <img class="pubg-photo" src="
+
+
+
+
+
+
+
+
+
+
+
+                            {% if tournament.owner.account.photo %}{{ tournament.owner.account.photo.url }}{% else %}{% static "img/default_avatar.png" %}{% endif %}"
+                         alt="photo">
+                    <div class="pubg-name">{{ tournament.owner.username | capfirst }}</div>
+                </div>
+                <div class="col pubg-text text-right">
+                    {% if user.username == tournament.owner.username %}
+                        <div class="form-group d-flex justify-content-end">
+                            <button class=" reg-status-btn reg-st-btn">Close</button>
+                        </div>
+                    {% else %}
+                        Registration status:
+                        <span>{{ tournament.status | capfirst }}</span>
+                    {% endif %}
+                    <p> Users
+                        registered: {{ tournament.participants.all | length }}/{{ tournament.max_participants }}</p>
+                </div>
+
+            </div>
+            <div class="row justify-content-between align-items-center pubg-desc">
+                <div class="col pubg-header-mini">
+                    {{ tournament.name | upper }}
+                </div>
+                <div class="col pubg-btn text-right">
+                    {% if user.account not in tournament.participants.all %}
+                        <form action="{% url 'tournament-register' slug=tournament.slug %}">
+                        <button type="submit" class="btn btn-primary main-inputs-btn">Register</button>
+                    {% else %}
+                        <form action="{% url 'tournament-unregister' slug=tournament.slug %}">
+                        <button type="submit" class="btn btn-primary main-inputs-btn">Cancel registration</button>
+                    {% endif %}
+                    </form>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        <div>
+            <div class="tab row main-links justify-content-around align-items-center pubg-links-all">
+                <button class="tablinks active" onclick="openCity(event, 'first-page')">Overview</button>
+                <button class="tablinks " onclick="openCity(event, 'second-page')">Participants</button>
+                <button class="tablinks" onclick="openCity(event, 'third-page')">Media</button>
+                <button class="tablinks" onclick="openCity(event,'fourth-page')">Announcements</button>
+
+                {% if tournament.owner == user %}
+                    <button class="manage">
+                        <img src="{% static "img/manage.png" %}" alt="manage">
+                        Manage
+                    </button>
+                {% else %}
+                    <button class="contact">
+                        Contact
+                    </button>
+                {% endif %}
+            </div>
+
+            <div id="first-page" class="tabcontent">
+                <div class="row pubg-game">
+                    <img src="{% if tournament.img %}{{ tournament.img.url }}{% else %}{% endif %}" alt="game">
+                </div>
+                <div class="row pubg-game-header">
+                    {{ tournament.name | upper }}
+                </div>
+                <div class="row pubg-game-text">
+                    {{ tournament.description }}
+                </div>
+                <div class="full-info">
+                    <nav class="tabs row justify-content-between">
+                        <a href="#Details" class="tabs-item tabs-item-active">Details</a>
+                        <a href="#Rules" class="tabs-item">Rules</a>
+                        <a href="#Rules" class="tabs-item">Prizes</a>
+                        <a href="#Schedule" class="tabs-item">Schedule</a>
+                        <a href="#Contact" class="tabs-item">Contact</a>
+                    </nav>
+
+                    <div class="full-content">
+                        <div class="tabs-content visible" id="Details">
+                            <p class="text">
+                                Date & Time
+                            </p>
+                            <p class="text text-header">
+                                {{ tournament.start_date | date:"M d, Y" }}
+                            </p>
+                            <p class="text text-small line">
+                                {{ tournametn.start_time }}
+                            </p>
+                            <p class="text">
+                                Format
+                            </p>
+                            <p class="text text-header">
+                                {{ tournament.game_format.name }}
+                            </p>
+                            {#						<p class="text text-small">#}
+                            {#							Squad mode#}
+                            {#						</p>#}
+                        </div>
+                        <div class="tabs-content" id="Rules">
+                            <p class="text">{{ tournament.rules }} </p>
+                        </div>
+                        <div class="tabs-content" id="Prizes">
+                            <p class="text">{{ tournamnet.prizes }} </p>
+                        </div>
+                        <div class="tabs-content" id="Schedule">
+                            <p class="text"> {{ tournament.schedule }} </p>
+                        </div>
+                        <div class="tabs-content" id="Contact">
+                            <p class="text">{{ tournament.communication }}:{{ tournament.contact }}</p>
+                            <p class="text">{{ tournament.contact_detail }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="second-page" class="tabcontent">
+                {% for a in tournament.participants.all %}
+                    <div class="row ">
+                    <div class="col-md-3">
+                        <div class="cards d-flex align-items-center{% if a.photo %} {{ a.user.username }}{% endif %}">
+                            {% if a.photo %}
+                                <style>
+                                    .{{ a.user.username }} {
+                                        background: url("{{ a.photo.url }}") center 0;
+                                        background-size: cover;
+                                    }
+                                </style>
+                            {% endif %}
+                            <p class="group-name">{{ a.user.username }}</p>
+                            <p class="player-name">{{ a.user.username }}</p>
+                        </div>
+                    </div>
+                {% empty %}
+                    No participants.
+                {% endfor %}
+
+
+                </div>
+
+                <div id="third-page" class="tabcontent">
+
+
+                    <div class="games-cards">
+                        <div class="game-card game-card-0">
+                            <div class="game-card-title">
+                                PUBG
+                            </div>
+                            <div class="game-card-desc">
+                                <div class="game-card-type">
+                                    Tonight battle 5x5 with crisps
+                                </div>
+                                <div class="game-card-date">
+                                    12 December
+                                </div>
+                            </div>
+                        </div>
+                        <div class="game-card game-card-1">
+                            <div class="game-card-title">
+                                CS:GO
+                            </div>
+                            <div class="game-card-desc">
+                                <div class="game-card-type">
+                                    Tonight battle 5x5 with crisps
+                                </div>
+                                <div class="game-card-date">
+                                    12 December
+                                </div>
+                            </div>
+                        </div>
+                        <div class="game-card game-card-2">
+                            <div class="game-card-title">
+                                Brawl Stars
+                            </div>
+                            <div class="game-card-desc">
+                                <div class="game-card-type">
+                                    Tonight battle 5x5 with crisps
+                                </div>
+                                <div class="game-card-date">
+                                    12 December
+                                </div>
+                            </div>
+                        </div>
+                        <div class="game-card game-card-3">
+                            <div class="game-card-title">
+                                CoD
+                            </div>
+                            <div class="game-card-desc">
+                                <div class="game-card-type">
+                                    Tonight battle 5x5 with crisps
+                                </div>
+                                <div class="game-card-date">
+                                    12 December
+                                </div>
+                            </div>
+                        </div>
+                        <div class="game-card game-card-4">
+                            <div class="game-card-title">
+                                Clash of clans
+                            </div>
+                            <div class="game-card-desc">
+                                <div class="game-card-type">
+                                    Tonight battle 5x5 with crisps
+                                </div>
+                                <div class="game-card-date">
+                                    12 December
+                                </div>
+                            </div>
+                        </div>
+                        <div class="game-card game-card-5">
+                            <div class="game-card-title">
+                                PUBG Mobile
+                            </div>
+                            <div class="game-card-desc">
+                                <div class="game-card-type">
+                                    Tonight battle 5x5 with crisps
+                                </div>
+                                <div class="game-card-date">
+                                    12 December
+                                </div>
+                            </div>
+                        </div>
+                        <div class="game-card game-card-6">
+                            <div class="game-card-title">
+                                Dota 2
+                            </div>
+                            <div class="game-card-desc">
+                                <div class="game-card-type">
+                                    Tonight battle 5x5 with crisps
+                                </div>
+                                <div class="game-card-date">
+                                    12 December
+                                </div>
+                            </div>
+                        </div>
+                        <div class="game-card game-card-7">
+                            <div class="game-card-title">
+                                CS:GO
+                            </div>
+                            <div class="game-card-desc">
+                                <div class="game-card-type">
+                                    Tonight battle 5x5 with crisps
+                                </div>
+                                <div class="game-card-date">
+                                    12 December
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="fourth-page" class="tabcontent">
+
+
+                    <form type="post" action="#">
+                        <div id="myDIV" class="head-of-comm">
+                            <input type="text" id="myInput" class="input-comm" placeholder="Write comments ... ">
+                            <button id="send" type="submit" class="to-do-btn">Send</button>
+                        </div>
+
+                        <ul id="myUL" class="todo">
+                            <li class="to-do-list" type="text">Hello</li>
+                            <!-- <li class="to-do-list" type="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                                    do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </li> -->
+                        </ul>
+
+                    </form>
+
+                </div>
+            </div>
+    </main>
+
+    <script src="../../static/js/jquery-3.5.1.min.js"></script>
+    <script src="../../static/js/script.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#send").on("click", function (e) {
+                e.preventDefault();
+                let valInput = document.querySelector("#myInput");
+                $(".todo").append(`<li class="to-do-list" type="text">${valInput.value}</li>`);
+                document.querySelector("#myInput").value = "";
+            });
+        });
+    </script>
+
+{% endblock %}

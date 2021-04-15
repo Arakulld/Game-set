@@ -48,11 +48,11 @@ class CustomPasswordResetDone(PasswordResetDoneView):
 
 
 class CustomPasswordResetConfirm(PasswordResetConfirmView):
-    template_name = ''
+    template_name = 'account/password_reset_confirm.html'
 
 
 class CustomPasswordResetComplete(PasswordResetCompleteView):
-    template_name = ''
+    template_name = 'account/reset_password_complete.html'
 
 
 class ProfileView(TemplateView):

@@ -17,7 +17,7 @@ class GameAdmin(admin.ModelAdmin):
 
 @admin.register(models.GameFormat)
 class GameFormatAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'name', 'max_players')
+    list_display = ('name',)
 
 
 @admin.register(models.Tournament)

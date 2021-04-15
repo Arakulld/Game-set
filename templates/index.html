@@ -25,26 +25,32 @@
 
         .orginize {
             margin-bottom: 10%;
-            margin-right:25px;
+            margin-right: 25px;
             color: white;
             /* background: transparent;*/
-            border: none; 
+            border: none;
             font-size: 20px;
         }
-       
+
     </style>
 {% endblock %}
 {% block content %}
 
 
     <div class="btn-position">
-        <button type="submit" class="main-inputs-btn ">Log Out</button>
+        <form action="{% url 'logout' %}">
+            <button type="submit" class="main-inputs-btn ">Log Out</button>
+        </form>
+
     </div>
     <main class="main-tour">
         <div class="justify-content-end btns-pos">
-            <button type="submit" class="main-inputs-btn btn-search ">
-                <img class="btn-user" src="{% static "img/search.png" %}" alt="">
-            </button>
+            <form action="{% url 'search' %}">
+                <button type="submit" class="main-inputs-btn btn-search ">
+                    <img class="btn-user" src="{% static "img/search.png" %}" alt="">
+                </button>
+            </form>
+
             <form action="{% url 'team-list' %}">
                 <button type="submit" class="main-inputs-btn btn-search">View Teams</button>
             </form>
@@ -52,7 +58,7 @@
 
             <form action="{% url 'profile' %}">
                 <button type="submit" class="main-inputs-btn btn-search">
-                    <img class="btn-user" src="{% static "img/user.png" %}"alt="">
+                    <img class="btn-user" src="{% static "img/user.png" %}" alt="">
                 </button>
             </form>
 
@@ -69,11 +75,12 @@
         </div>
 
         <div class="games-cards">
-            
-             <form action="{% url 'create-tournament' %}" >
+
+            <form action="{% url 'create-tournament' %}">
                 <button class="orginize game-card game-card-0 game-add">
                     <div class="post icon-pos">
-                        <img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""><br><br> Organize tournament
+                        <img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""><br><br> Organize
+                        tournament
                     </div>
                 </button>
             </form>
@@ -87,7 +94,7 @@
                         }
                     </style>
                     <div class="game-card-title">
-                        {{ t.name }}
+                        <a href="{% url 'tournament-detail' slug=t.slug %}">{{ t.name }}</a>
                     </div>
                     <div class="game-card-desc">
                         <div class="game-card-type">

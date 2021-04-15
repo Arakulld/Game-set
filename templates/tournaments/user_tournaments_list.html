@@ -16,45 +16,49 @@
         <div class=" text-posit">
             <span>M</span>y Tournaments
         </div>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="form-group d-flex justify-content-between">
-                    <input type="text" class="main-input main-search info-input" placeholder="Search ... ">
-                    <select class="main-select game-select" size="1">
-                        <option class="main-option" disabled selected>Game</option>
-                        <option>PUBG Mobile</option>
-                        <option>CS:GO</option>
-                        <option>DOTA2</option>
-                    </select>
-                </div>
-                <div class="col-2">
-                    <button type="submit" class="btn btn-primary search-game ">Search</button>
+        <form action="" method="get">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="form-group d-flex justify-content-between">
+                        <input name="name" type="text" class="main-input main-search info-input"
+                               placeholder="Search ... ">
+                        <select name="game" class="main-select game-select" size="1">
+                            <option class="main-option" disabled selected>Game</option>
+                            <option>PUBG Mobile</option>
+                            <option>CS:GO</option>
+                            <option>DOTA2</option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-primary search-game ">Search</button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
 
-        <div class="games-cards">
-            <div class="game-card game-card-7">
+        {% for t in tournaments %}
+            <div class="game-card {{ t.slug }} mr-4 mb-5">
                 <style>
-                    .game-card-7 {
-                        background: url("../../static/img/games_foto/Card_0.png");
+                    .{{ t.slug }} {
+                        background: url("{% if t.img %}{{ t.img.url }}{% else %}{% static 'img/games_foto/default.png' %}{% endif %}") center 0;
+                        background-size: cover;
                     }
                 </style>
-                <a href="{% static "img/games_foto/Card_5.png" %}">
-                    <div class="game-card-title">
-                        PUBG
+                <div class="game-card-title">
+                    <a href="{% url 'tournament-detail' slug=t.slug %}">{{ t.name }}</a>
+                </div>
+                <div class="game-card-desc">
+                    <div class="game-card-type">
+                        {{ t.game.name }} {{ t.game_format.name }}
                     </div>
-                    <div class="game-card-desc">
-                        <div class="game-card-type">
-                            Tonight battle 5x5 with crisps
-                        </div>
-                        <div class="game-card-date">
-                            12 December
-                        </div>
+                    <div class="game-card-date">
+                        {{ t.start_time }} {{ t.start_date|date:"M d, Y" }}
                     </div>
-                </a>
+                </div>
             </div>
-        </div>
+        {% empty %}
+            <h>Doesn't participate in any tournament.</h>
+        {% endfor %}
 
     </main>
 {% endblock %}

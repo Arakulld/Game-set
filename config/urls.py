@@ -21,7 +21,7 @@ from tournaments import views as tv
 
 urlpatterns = [
     path('test/', tv.test, name='test'),
-    path('', include('tournaments.tournament_urls')),
+    path('tournament/', include('tournaments.tournament_urls')),
     path('', include('tournaments.common_urls')),
     path('', include('account.common_urls')),
     path('account/', include('account.account_urls')),
