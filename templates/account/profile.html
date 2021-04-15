@@ -15,8 +15,9 @@
             margin-right: 0;
             margin-bottom: 0;
         }
-        .space{
-            margin-left:20px;
+
+        .space {
+            margin-left: 20px;
         }
     </style>
 {% endblock %}
@@ -39,14 +40,17 @@
         <div class=" menu-description">
             <div class="row justify-content-between align-items-center pubg-info">
                 <div class="col d-flex align-items-center">
-                    <form action="{% url 'create-tournament' %}" >
-                        <button class="orginize game-card game-card-0 game-add teams-icon-1 post icon-pos">
-                            <div class="post icon-pos">
-                                <img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""><br><br> Upload avatar
-                            </div>
-                        </button>
-                    </form>
-                    
+                    <button class="orginize game-card game-card-0 game-add teams-icon-1 post icon-pos {{ user.username }}">
+                        <div class="post icon-pos">
+                            <style>
+                                    .{{ user.username }} {
+                                        background:  {% if user.account.photo %}url("{{ user.account.photo.url }}"){% else %}url("{% static 'img/default_avatar.png' %}"){% endif %} center 0;
+                                        background-size: cover;
+                                    }
+                            </style>
+                        </div>
+                    </button>
+
                     <!-- <div class="teams-icon-1 post icon-pos">
                         <input type="file" class="form-control-file">
                         <img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""><br><br> Upload avatar

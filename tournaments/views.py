@@ -32,7 +32,8 @@ class CreateTournament(TemplateView):
     @method_decorator(login_required)
     def post(self, request, *args, **kwargs):
         from common.services import throw_form_errors_as_message
-        form = TournamentCreateForm(data=request.POST, files=request.FILES)
+        tournament = Tournament(owner=request.user)
+        form = TournamentCreateForm(instance=tournament, data=request.POST, files=request.FILES)
         context = self.get_context_data(**kwargs)
         if form.is_valid():
             form.save()
