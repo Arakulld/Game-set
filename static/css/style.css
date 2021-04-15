@@ -311,7 +311,12 @@ margin: 30px 100px 30px ;
   height: 40px;
   background: url(../img/arrow-down.png) no-repeat center right 20px;
 }
+.game-select-1{
+  width: 135px;
+  height: 40px;
+  background: url(../img/arrow-down.png) no-repeat center right 20px;
 
+}
 .main-search{
   width: 225px;
   height: 40px;

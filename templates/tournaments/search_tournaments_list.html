@@ -11,10 +11,10 @@
         <div class="container">
             <div class="row justify-content-center">
                 <form action=".">
-                    <div class="form-group d-flex justify-content-between">
+                    <div class="form-group d-flex ">
                         <input name="name" type="text" class="main-input main-search info-input"
                                placeholder="Search ... ">
-                        <select name="game" class="main-select game-select" size="1">
+                        <select name="game" class="main-select game-select-1" size="1">
                             <option class="main-option" disabled selected>Game</option>
                             <option>PUBG Mobile</option>
                             <option>CS:GO</option>
@@ -22,10 +22,9 @@
                         </select>
                         <input name="date" class="main-select main-data" type="date"
                                id="example-date-input">
-
-                    </div>
-                    <div class="col-2">
-                        <button type="submit" class="btn btn-primary search-game ">Search</button>
+                        <div class="col-2">
+                            <button type="submit" class="btn btn-primary search-game ">Search</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -33,7 +32,7 @@
 
         <div class="games-cards">
             {% for t in  tournaments %}
-                <div class="game-card {{ t.slug }}">
+                <div class="game-card {{ t.slug }} mr-4 mb-5">
                     <style>
                         .{{ t.slug }} {
                             background: url("{% if t.img %}{{ t.img.url }}{% else %}{% static 'img/games_foto/default.png' %}{% endif %}") center 0;

@@ -28,10 +28,12 @@
 	background: url("../img/games_foto/Card_7.png");
 } */
 .game-card {
+	display: inline-block;
 	color: white;
 	width: 190px;
 	height: 270px;
 	padding: 3%;
+
 }
 .game-card-title {
 	font-size: 12px;
