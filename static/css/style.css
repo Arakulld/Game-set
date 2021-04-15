@@ -135,9 +135,10 @@ input {
   box-sizing: border-box;
   border-radius: 6px;
   padding: 56px 244px;
-  background: url("../img/photo-upload.png") no-repeat center;
+  background: url("../img/iconus.png") no-repeat center;
   margin-bottom: 60px;
 }
+
 
 .main-inputs-btn {
   text-align: right;
