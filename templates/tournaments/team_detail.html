@@ -93,7 +93,7 @@
                                 Invite Link
                             </div>
                             <div class="dangelious-desc">
-                                {% if team.join_link %}{% url 'join-team' token=team.join_link.link %}{% else %}
+                                {% if team.join_link %}{{ domain }}{% url 'join-team' token=team.join_link.link %}{% else %}
                                     None{% endif %}
                             </div>
                         </div>
@@ -112,9 +112,6 @@
             <span>T</span>eam Members
         </div>
         <div class="team-icon-pos">
-            <div class="teams-icon post"></div>
-            <div class="teams-icon post"></div>
-            <div class="teams-icon post"></div>
             <!-- <div class="teams-icon-1 post icon-pos">
                 <input type="file" class="form-control-file">
                 <img src="{% static "img/plus.png" %}" width="30px" height="30px" alt=""><br><br> Add member
@@ -126,7 +123,21 @@
 
 
         </div>
-
+        {% for u in team.participants.all %}
+            <div class="teams-icon post{% if u.account.photo %} {{ u.username }}{% endif %}">
+                {% if u.account.photo %}
+                    <style>
+                        .{{ u.username }} {
+                            background: url("{{ u.account.photo.url }}") center 0;
+                            background-size: cover;
+                        }
+                    </style>
+                {% endif %}
+                {{ u.username }}
+            </div>
+        {% empty %}
+            No participants.
+        {% endfor %}
     </main>
 
 

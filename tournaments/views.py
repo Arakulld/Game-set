@@ -141,7 +141,8 @@ class TeamDetail(TemplateView):
         except Team.DoesNotExist:
             raise Http404
         context = self.get_context_data(**kwargs)
-        context.update({'team': team})
+        context.update({'team': team,
+                        'domain': 'http://' + request.META['HTTP_HOST']})
         return self.render_to_response(context)
 
 
@@ -194,17 +195,3 @@ class SearchTournaments(TemplateView):
         context = self.get_context_data(**kwargs)
         context.update({'tournaments': tournaments})
         return self.render_to_response(context)
-
-
-def test(request):
-    return render(request, 'account/password_reset_confirm.html')
-
-
-def to_do_list(request):
-    return render(request=request,
-                  template_name='new_pages/to_do_list_user.html')
-
-
-def to_do_list_user(request):
-    return render(request=request,
-                  template_name='new_pages/to_do_list_user.html')
