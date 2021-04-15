@@ -3,6 +3,8 @@
 {% block title %}My tournaments{% endblock %}
 {% block content %}
     <link rel="stylesheet" href="{% static "css/games-cards.css" %}">
+    <link rel="stylesheet" href="{% static "css/tournaments.css" %}">
+
     <style>
         a {
             color: white;
@@ -14,7 +16,11 @@
         
     </style>
    
-  
+   <div class="justify-content-end btn-position ">
+        <form action="{% url 'index' %}">
+            <button type="submit" class="btn btn-primary main-inputs-btn ">Main</button>
+        </form>
+    </div>
     <main class="search-main">
         
         <div class=" text-posit">
