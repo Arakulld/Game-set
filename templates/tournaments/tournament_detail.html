@@ -68,6 +68,11 @@
             color: #FFFFFF;
             border-radius: 10px;
         }
+        .img-ramka{
+            width: 100%;
+             height: 100%;
+            object-fit: cover;
+        }
         
 
     </style>
@@ -153,7 +158,7 @@
 
             <div id="first-page" class="tabcontent">
                 <div class=" pubg-game">
-                    <img src="{% if tournament.img %}{{ tournament.img.url }}{% else %}{% endif %}" alt="game">
+                    <img class="img-ramka" src="{% if tournament.img %}{{ tournament.img.url }}{% else %}{% endif %}" alt="game">
                 </div>
                 <div class="row pubg-game-header">
                     {{ tournament.name | upper }}

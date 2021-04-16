@@ -60,7 +60,7 @@ body {
 
 .pubg-photo {
   border: 2px solid red;
-  margin-right: 65px;
+  margin-right: 40px;
   margin-left: 20px;
   background-image:cover;
   width: 170px;
@@ -103,13 +103,10 @@ body {
   border: none;
 }
 
-.pubg-game {
-  display: block;
-  text-align: center;
-  
+.pubg-game {  
   margin-bottom: 30px;
-  width: 320px;
-  height: 170px;
+  width: 100%;
+  height: 250px;
   
 
   
