@@ -47,6 +47,7 @@
         </form>
 
         {% for t in tournaments %}
+        <a href="{% url 'tournament-detail' slug=t.slug %}">
             <div class="game-card {{ t.slug }} mr-4 mb-5">
                 <style>
                     .{{ t.slug }} {
@@ -55,7 +56,7 @@
                     }
                 </style>
                 <div class="game-card-title">
-                    <a href="{% url 'tournament-detail' slug=t.slug %}">{{ t.name }}</a>
+                   {{ t.name }}
                 </div>
                 <div class="game-card-desc">
                     <div class="game-card-type">
@@ -66,6 +67,7 @@
                     </div>
                 </div>
             </div>
+        </a>
         {% empty %}
             <h>Doesn't participate in any tournament.</h>
         {% endfor %}

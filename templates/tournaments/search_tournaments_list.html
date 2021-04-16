@@ -38,31 +38,33 @@
             </div>
         </div>
 
-        <div class="games-cards">
-            {% for t in  tournaments %}
-                <div class="game-card {{ t.slug }} mr-4 mb-5">
-                    <style>
-                        .{{ t.slug }} {
-                            background: url("{% if t.img %}{{ t.img.url }}{% else %}{% static 'img/games_foto/default.png' %}{% endif %}") center 0;
-                            background-size: cover;
-                        }
-                    </style>
-                    <div class="game-card-title">
-                        <a href="{% url 'tournament-detail' slug=t.slug %}">{{ t.name }}</a>
-                    </div>
-                    <div class="game-card-desc">
-                        <div class="game-card-type">
-                            {{ t.game.name }} {{ t.game_format.name }}
+            <div class="games-cards">
+                {% for t in  tournaments %}
+                     <a href="{% url 'tournament-detail' slug=t.slug %}">
+                        <div class="game-card {{ t.slug }} mr-3 mb-5">
+                            <style>
+                                .{{ t.slug }} {
+                                    background: url("{% if t.img %}{{ t.img.url }}{% else %}{% static 'img/games_foto/default.png' %}{% endif %}") center 0;
+                                    background-size: cover;
+                                }
+                            </style>
+                            <div class="game-card-title">
+                                {{ t.name }}
+                            </div>
+                            <div class="game-card-desc">
+                                <div class="game-card-type">
+                                    {{ t.game.name }} {{ t.game_format.name }}
+                                </div>
+                                <div class="game-card-date">
+                                    {{ t.start_time }} {{ t.start_date|date:"M d, Y" }}
+                                </div>
+                            </div>
                         </div>
-                        <div class="game-card-date">
-                            {{ t.start_time }} {{ t.start_date|date:"M d, Y" }}
-                        </div>
-                    </div>
-                </div>
-                {% empty %}
-                No results found.
-            {% endfor %}
-        </div>
-
+                    </a>
+                    {% empty %}
+                    No results found.
+                {% endfor %}
+            </div>
+        
     </main>
 {% endblock %}

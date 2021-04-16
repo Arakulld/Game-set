@@ -137,6 +137,7 @@ input {
   padding: 56px 244px;
   background: url("../img/iconus.png") no-repeat center;
   margin-bottom: 60px;
+  background-size: contain;
 }
 
 
