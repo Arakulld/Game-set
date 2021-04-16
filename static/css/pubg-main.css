@@ -60,6 +60,7 @@ body {
 
 .pubg-photo {
   border: 2px solid red;
+  border: radius 15px;;
   margin-right: 40px;
   margin-left: 20px;
   background-image:cover;

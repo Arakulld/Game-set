@@ -87,7 +87,7 @@
 
             {% for t in tournaments %}
             <a href="{% url 'tournament-detail' slug=t.slug %}">
-                <div class="game-card {{ t.slug }} mr-4 mb-5">
+                <div class="game-card {{ t.slug }} mr-3 mb-5">
                     <style>
                         .{{ t.slug }} {
                             background: url("{% if t.img %}{{ t.img.url }}{% else %}{% static 'img/games_foto/default.png' %}{% endif %}") center 0;

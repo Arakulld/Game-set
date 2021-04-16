@@ -72,6 +72,10 @@
             width: 100%;
              height: 100%;
             object-fit: cover;
+
+        }
+        .ramka-grani{
+            border-radius:15px;
         }
         
 
@@ -97,7 +101,7 @@
                 <span>{{ tournament.game.name | first }}</span>{{ tournament.game.name | without_first }}
             </div>
             <div class="row justify-content-between align-items-center pubg-info">
-                <div class="col d-flex align-items-center">
+                <div class="col d-flex align-items-center ramka-grani">
                     <img class="pubg-photo" src="
                             {% if tournament.owner.account.photo %}{{ tournament.owner.account.photo.url }}{% else %}{% static "img/default_avatar.png" %}{% endif %}"
                          alt="photo">
